@@ -1,6 +1,6 @@
 "use client";
 
-import { HomePageContent } from "@/components/site/content";
+import { HomePageContent } from "@/components/site/home-page-content";
 import { useSiteNavigation } from "@/components/site/chrome";
 
 export default function HomePage() {

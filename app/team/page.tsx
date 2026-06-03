@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { TeamPageContent } from "@/components/site/content";
+import { TeamPageContent } from "@/components/site/team-page";
 
 export const metadata: Metadata = {
   title: "Unser Team – Stylisten bei Haiyen Hairdesign",
