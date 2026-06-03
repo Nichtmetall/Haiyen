@@ -42,12 +42,14 @@ export const useSiteNavigation = (onNavigate?: () => void) => {
   };
 };
 
+
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const currentPage = useMemo(() => getPageFromPathname(pathname), [pathname]);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const navigateTo = useSiteNavigation(() => setMobileMenuOpen(false));
 
   useEffect(() => {
@@ -68,6 +70,14 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
     return "bg-transparent py-6 md:py-10 text-[#F5F0E8]";
   };
 
+  const navItems = [
+    { key: "home", label: "Home" },
+    { key: "prices", label: "Preise" },
+    { key: "team", label: "Team" },
+    { key: "galerie", label: "Galerie", hash: "galerie" },
+    { key: "standorte", label: "Standorte", hash: "standorte" },
+  ];
+
   return (
     <div
       className={`font-sans min-h-screen selection:bg-[#C9A96E] selection:text-[#F5F0E8] flex flex-col ${
@@ -85,30 +95,44 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
             <Image src="/images/haiyen_logo_hell.png" alt="Haiyen Hairdesign" width={200} height={200} />
           </button>
 
-          <nav className="hidden lg:flex items-center gap-12 text-xs tracking-widest uppercase font-bold">
-            <button onClick={() => navigateTo("home")} className="hover:text-[#C9A96E] transition-colors">
-              Home
-            </button>
-            <button onClick={() => navigateTo("prices")} className="hover:text-[#C9A96E] transition-colors">
-              Preise
-            </button>
-            <button onClick={() => navigateTo("team")} className="hover:text-[#C9A96E] transition-colors">
-              Team
-            </button>
-            <button onClick={() => navigateTo("home", "galerie")} className="hover:text-[#C9A96E] transition-colors">
-              Galerie
-            </button>
-            <button onClick={() => navigateTo("home", "standorte")} className="hover:text-[#C9A96E] transition-colors">
-              Standorte
-            </button>
-            <button
+          <nav className="hidden lg:flex items-center gap-12 text-xs tracking-widest uppercase font-bold relative">
+            {navItems.map((item) => {
+              const isLinkActive =
+                (item.key === "home" && !item.hash && currentPage === "home") ||
+                (item.key === "prices" && currentPage === "prices") ||
+                (item.key === "team" && currentPage === "team");
+              return (
+                <button
+                  key={item.key}
+                  onClick={() => navigateTo(item.hash ? "home" : (item.key as PageKey), item.hash)}
+                  onMouseEnter={() => setHoveredLink(item.key)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  className="relative py-2 transition-colors duration-300 hover:text-[#C9A96E]"
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  {hoveredLink === item.key && (
+                    <motion.span
+                      layoutId="navUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C9A96E]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  {isLinkActive && !hoveredLink && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
+                  )}
+                </button>
+              );
+            })}
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => navigateTo("booking")}
-              className={`px-10 py-4 rounded-sm transition-all duration-300 tracking-widest ${
+              className={`px-10 py-4 rounded-sm transition-all duration-300 tracking-widest cursor-pointer ${
                 currentPage === "booking" ? "bg-[#F5F0E8] text-[#1a1a1a]" : "bg-[#C9A96E] text-[#F5F0E8] hover:bg-[#2D4A3E]"
               }`}
             >
               Termin
-            </button>
+            </motion.button>
           </nav>
 
           <button className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>

@@ -58,3 +58,42 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Custom minimal scrollbar for a premium experience */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A96E;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+/* Luxury marquee fade effect */
+.mask-marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+/* Text highlights and premium touches */
+.text-gold {
+  color: #C9A96E;
+}
+
+.bg-gold {
+  background-color: #C9A96E;
+}
+
+.border-gold {
+  border-color: #C9A96E;
+}
+
