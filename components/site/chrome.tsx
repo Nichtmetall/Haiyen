@@ -97,7 +97,14 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <button onClick={() => navigateTo("home")} className="text-2xl md:text-3xl font-serif tracking-widest uppercase flex flex-col text-left">
-            <Image src="/images/haiyen_logo_hell.png" alt="Haiyen Hairdesign" width={200} height={200} />
+            <Image
+              src="/images/logos/haiyen_logo_hell.png"
+              alt="Haiyen Hairdesign"
+              width={808}
+              height={246}
+              priority
+              className="h-12 md:h-14 w-auto"
+            />
           </button>
 
           <nav className="hidden lg:flex items-center gap-12 text-xs tracking-widest uppercase font-bold relative">
