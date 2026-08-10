@@ -110,6 +110,9 @@ export interface TeamMember {
   specialty: string;
   category: "master" | "top";
   slug: string;
+  location: string;
+  skills: string[];
+  quote: string;
 }
 
 export const TEAM: TeamMember[] = [
@@ -119,7 +122,10 @@ export const TEAM: TeamMember[] = [
     img: "/images/galerie/Haiyen/team.JPG",
     specialty: "Balayage-Expertin & Typberatung",
     category: "master",
-    slug: "haiyen"
+    slug: "haiyen",
+    location: "Striesen & Neustadt",
+    skills: ["Balayage", "Typberatung", "Color Correction"],
+    quote: "Ein guter Schnitt beginnt mit dem Zuhören – erst dann greife ich zur Schere.",
   },
   {
     name: "Lisa Goßmann",
@@ -127,7 +133,10 @@ export const TEAM: TeamMember[] = [
     img: "/images/galerie/Lisa/team.JPG",
     specialty: "Hochsteckfrisuren & Premium Extensions",
     category: "master",
-    slug: "lisa"
+    slug: "lisa",
+    location: "Dresden Striesen",
+    skills: ["Extensions", "Hochsteckfrisuren", "Braut-Styling"],
+    quote: "Extensions dürfen niemals auffallen – nur das Ergebnis soll auffallen.",
   },
   {
     name: "Anika Weidlich",
@@ -135,7 +144,10 @@ export const TEAM: TeamMember[] = [
     img: "/images/galerie/Anika/team.JPG",
     specialty: "Kreative Farb- & Strähnentechniken",
     category: "top",
-    slug: "anika"
+    slug: "anika",
+    location: "Dresden Neustadt",
+    skills: ["Highlights", "Creative Color", "Blondierung"],
+    quote: "Farbe ist Handwerk und Gefühl zugleich – der Übergang macht den Unterschied.",
   },
   {
     name: "Josi",
@@ -143,7 +155,10 @@ export const TEAM: TeamMember[] = [
     img: "/images/galerie/Josi/team.JPG",
     specialty: "Moderne Haarschnitte & Styling-Trends",
     category: "top",
-    slug: "josi"
+    slug: "josi",
+    location: "Dresden Striesen",
+    skills: ["Cuts", "Styling", "Pflege-Rituale"],
+    quote: "Der beste Look ist der, den du morgens in fünf Minuten selbst hinbekommst.",
   }
 ];
 

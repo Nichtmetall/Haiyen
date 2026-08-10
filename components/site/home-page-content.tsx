@@ -366,7 +366,10 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
                 </li>
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Zeiten</span>
-                  <span>Mo – Fr: 09:00 – 19:00 Uhr | Sa: 09:00 – 16:00 Uhr</span>
+                  <span className="grid gap-1">
+                    <span><strong className="inline-block w-16 text-[#2D4A3E]">Mo – Fr</strong>09:00 – 19:00 Uhr</span>
+                    <span><strong className="inline-block w-16 text-[#2D4A3E]">Sa</strong>09:00 – 16:00 Uhr</span>
+                  </span>
                 </li>
               </ul>
               <motion.button
@@ -402,7 +405,11 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
                 </li>
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Zeiten</span>
-                  <span>Mo: 09:00 – 17:00 Uhr | Di – Fr: 09:00 – 19:00 Uhr | Sa: 09:00 – 14:00 Uhr</span>
+                  <span className="grid gap-1">
+                    <span><strong className="inline-block w-16 text-[#2D4A3E]">Mo</strong>09:00 – 17:00 Uhr</span>
+                    <span><strong className="inline-block w-16 text-[#2D4A3E]">Di – Fr</strong>09:00 – 19:00 Uhr</span>
+                    <span><strong className="inline-block w-16 text-[#2D4A3E]">Sa</strong>09:00 – 14:00 Uhr</span>
+                  </span>
                 </li>
               </ul>
               <motion.button

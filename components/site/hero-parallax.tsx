@@ -10,6 +10,50 @@ import {
 
 type NavigateTo = (page: string, hash?: string, query?: string) => void;
 
+/**
+ * The parallax offset lives on the parent, so the entrance and idle motion each
+ * get their own layer instead of fighting over the same transform values.
+ */
+const FloatingCard = ({
+  alt,
+  aspect,
+  caption,
+  delay,
+  floatOffset,
+  src,
+}: {
+  alt: string;
+  aspect: string;
+  caption: string;
+  delay: number;
+  floatOffset: number;
+  src: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9, y: 32 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay }}
+  >
+    <motion.div
+      animate={{ y: [0, floatOffset, 0] }}
+      transition={{ repeat: Infinity, duration: 9, ease: "easeInOut", delay }}
+      className={`${aspect} relative w-full overflow-hidden rounded-lg border border-[#C9A96E]/20 bg-[#2D4A3E] shadow-[0_30px_60px_rgba(0,0,0,0.35)]`}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={alt} className="h-full w-full object-cover saturate-[0.85] contrast-[1.05]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1d332b]/80 via-transparent to-transparent" />
+      <motion.span
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: delay + 0.7 }}
+        className="absolute bottom-4 left-4 text-[9px] font-bold uppercase tracking-[0.25em] text-[#C9A96E]"
+      >
+        {caption}
+      </motion.span>
+    </motion.div>
+  </motion.div>
+);
+
 export const HeroParallax = ({ navigateTo }: { navigateTo: NavigateTo }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -56,35 +100,31 @@ export const HeroParallax = ({ navigateTo }: { navigateTo: NavigateTo }) => {
       {/* Floating Left Image Card (Desktop only) */}
       <motion.div
         style={{ x: leftCardX, y: leftCardY }}
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 0.9, x: 0 }}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-        className="hidden lg:block absolute left-[8%] top-[22%] w-[17vw] aspect-[2/3] z-10 pointer-events-none rounded-lg overflow-hidden border border-[#C9A96E]/20 shadow-[0_30px_60px_rgba(0,0,0,0.3)] bg-[#2D4A3E]"
+        className="hidden lg:block absolute left-[8%] top-[22%] w-[17vw] z-10 pointer-events-none"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/galerie/Josi/IMG_8571.jpg"
+        <FloatingCard
           alt="Premium Hair Styling"
-          className="w-full h-full object-cover filter saturate-75 contrast-[1.05]"
+          aspect="aspect-[2/3]"
+          caption="Cut & Style"
+          delay={0.45}
+          floatOffset={-10}
+          src="/images/galerie/Josi/IMG_8571.jpg"
         />
-        <div className="absolute inset-0 bg-[#2D4A3E]/10" />
       </motion.div>
 
       {/* Floating Right Image Card (Desktop only) */}
       <motion.div
         style={{ x: rightCardX, y: rightCardY }}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 0.85, x: 0 }}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-        className="hidden lg:block absolute right-[8%] bottom-[18%] w-[16vw] aspect-[3/4] z-10 pointer-events-none rounded-lg overflow-hidden border border-[#C9A96E]/20 shadow-[0_30px_60px_rgba(0,0,0,0.3)] bg-[#2D4A3E]"
+        className="hidden lg:block absolute right-[8%] bottom-[18%] w-[16vw] z-10 pointer-events-none"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg"
+        <FloatingCard
           alt="Balayage Hair Detail"
-          className="w-full h-full object-cover filter saturate-75 contrast-[1.05]"
+          aspect="aspect-[3/4]"
+          caption="Balayage"
+          delay={0.65}
+          floatOffset={10}
+          src="/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg"
         />
-        <div className="absolute inset-0 bg-[#2D4A3E]/10" />
       </motion.div>
 
       {/* Floating Abstract Gold Accents (Desktop only) */}

@@ -8,6 +8,7 @@ import {
   useEffect,
   useMemo,
   useState,
+  type ReactNode,
 } from "react";
 import { Check, MapPinned, ShieldCheck, X } from "lucide-react";
 
@@ -121,8 +122,9 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
                   Deine Privatsphäre, deine Wahl
                 </h2>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#F5F0E8]/75">
-                  Wir verwenden nur technisch notwendige Speicherung. Google Maps wird erst geladen,
-                  wenn du externe Medien erlaubst. Deine Auswahl kannst du jederzeit im Footer ändern.
+                  Wir verwenden nur technisch notwendige Speicherung. Google Maps und die
+                  Online-Terminbuchung von Planity werden erst geladen, wenn du externe Medien erlaubst.
+                  Deine Auswahl kannst du jederzeit im Footer ändern.
                 </p>
                 <div className="mt-3 flex gap-4 text-xs font-semibold text-[#C9A96E]">
                   <Link className="underline-offset-4 hover:underline" href="/datenschutz">
@@ -218,7 +220,8 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
                   <div>
                     <span className="font-semibold">Externe Medien</span>
                     <p className="mt-1 text-sm leading-relaxed text-[#2D4A3E]/65">
-                      Lädt Google Maps. Dabei können Verbindungsdaten an Google übertragen werden.
+                      Lädt Google Maps und die Terminbuchung von Planity. Dabei können
+                      Verbindungsdaten an Google und Planity übertragen werden.
                     </p>
                   </div>
                 </div>
@@ -270,20 +273,46 @@ export function useConsent() {
 }
 
 type ConsentEmbedProps = {
+  actionLabel?: string;
+  allow?: string;
   className?: string;
+  description?: string;
+  fallbackHref?: string;
+  fallbackLabel?: string;
+  heading?: string;
+  id?: string;
+  icon?: ReactNode;
   src: string;
   title: string;
+  /** Renders the placeholder on a dark surface, e.g. the booking page. */
+  tone?: "light" | "dark";
 };
 
-export function ConsentEmbed({ className = "", src, title }: ConsentEmbedProps) {
+export function ConsentEmbed({
+  actionLabel = "Google Maps erlauben",
+  allow,
+  className = "",
+  description = "Mit dem Laden stimmst du der Übertragung von Daten an Google Maps zu.",
+  fallbackHref,
+  fallbackLabel = "In neuem Tab öffnen",
+  heading = "Karte anzeigen",
+  id,
+  icon,
+  src,
+  title,
+  tone = "light",
+}: ConsentEmbedProps) {
   const { consent, allowExternalMedia } = useConsent();
 
   if (consent?.externalMedia) {
     return (
       <iframe
+        allow={allow}
         allowFullScreen
         className={className}
+        frameBorder="0"
         height="100%"
+        id={id}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         src={src}
@@ -294,23 +323,54 @@ export function ConsentEmbed({ className = "", src, title }: ConsentEmbedProps) 
     );
   }
 
+  const isDark = tone === "dark";
+
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center bg-[#EAE2D6] px-6 text-center text-[#2D4A3E]">
-      <MapPinned aria-hidden="true" className="h-9 w-9 text-[#A78249]" />
-      <p className="mt-4 font-serif text-xl font-semibold">Karte anzeigen</p>
-      <p className="mt-2 max-w-xs text-xs leading-relaxed text-[#2D4A3E]/65">
-        Mit dem Laden stimmst du der Übertragung von Daten an Google Maps zu.
+    <div
+      className={`flex h-full w-full flex-col items-center justify-center px-6 py-12 text-center ${
+        isDark ? "bg-[#141414] text-[#F5F0E8]" : "bg-[#EAE2D6] text-[#2D4A3E]"
+      }`}
+    >
+      <span className={isDark ? "text-[#C9A96E]" : "text-[#A78249]"}>
+        {icon ?? <MapPinned aria-hidden="true" className="h-9 w-9" />}
+      </span>
+      <p className="mt-4 font-serif text-xl font-semibold md:text-2xl">{heading}</p>
+      <p className={`mt-2 max-w-sm text-xs leading-relaxed ${isDark ? "text-[#F5F0E8]/60" : "text-[#2D4A3E]/65"}`}>
+        {description}
       </p>
       <button
-        className="mt-5 rounded-sm bg-[#2D4A3E] px-5 py-3 text-[10px] font-bold uppercase tracking-widest text-[#F5F0E8] transition-colors hover:bg-[#C9A96E] hover:text-[#2D4A3E]"
+        className={`mt-5 min-h-12 rounded-sm px-6 py-3 text-[10px] font-bold uppercase tracking-widest transition-colors ${
+          isDark
+            ? "bg-[#C9A96E] text-[#141414] hover:bg-[#F5F0E8]"
+            : "bg-[#2D4A3E] text-[#F5F0E8] hover:bg-[#C9A96E] hover:text-[#2D4A3E]"
+        }`}
         onClick={allowExternalMedia}
         type="button"
       >
-        Google Maps erlauben
+        {actionLabel}
       </button>
-      <Link className="mt-3 text-[10px] font-semibold text-[#A78249] underline-offset-4 hover:underline" href="/datenschutz">
-        Datenschutzhinweise
-      </Link>
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-4">
+        {fallbackHref && (
+          <a
+            className={`text-[10px] font-semibold underline-offset-4 hover:underline ${
+              isDark ? "text-[#F5F0E8]/60" : "text-[#2D4A3E]/60"
+            }`}
+            href={fallbackHref}
+            rel="noreferrer"
+            target="_blank"
+          >
+            {fallbackLabel}
+          </a>
+        )}
+        <Link
+          className={`text-[10px] font-semibold underline-offset-4 hover:underline ${
+            isDark ? "text-[#C9A96E]" : "text-[#A78249]"
+          }`}
+          href="/datenschutz"
+        >
+          Datenschutzhinweise
+        </Link>
+      </div>
     </div>
   );
 }

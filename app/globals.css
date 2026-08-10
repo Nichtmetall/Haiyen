@@ -60,6 +60,41 @@ html {
   background-size: cover;
 }
 
+/* Navigation hover: a gold hairline that wipes in from the left and, on leave,
+   keeps travelling to the right instead of retracing its path. */
+.nav-link-sweep::after {
+  background-color: #c9a96e;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-sweep:hover::after,
+.nav-link-sweep:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.nav-link-sweep.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.nav-link-sweep > span {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-sweep:hover > span {
+  transform: translateX(3px);
+}
+
 /* Suppress the default user-agent focus ring on buttons (which appears after a
    click and remained visible around active nav items), while preserving a
    clearly visible focus indicator for keyboard navigation. */
@@ -122,40 +157,103 @@ button:focus-visible {
 
 .legal-content {
   font-size: 0.95rem;
-  line-height: 1.8;
+  line-height: 1.85;
+}
+
+.legal-content section {
+  scroll-margin-top: 9rem;
 }
 
 .legal-content section + section {
-  margin-top: 2.5rem;
+  border-top: 1px solid rgb(45 74 62 / 0.1);
+  margin-top: 3.25rem;
+  padding-top: 3.25rem;
+}
+
+.legal-section-head {
+  align-items: baseline;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.legal-section-num {
+  color: #c9a96e;
+  font-family: var(--font-playfair), serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 1.75rem;
 }
 
 .legal-content h2 {
-  margin-bottom: 0.8rem;
   font-family: var(--font-playfair), serif;
-  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .legal-content p + p,
 .legal-content ul {
-  margin-top: 0.9rem;
+  margin-top: 1rem;
 }
 
 .legal-content p,
 .legal-content li {
   color: rgb(45 74 62 / 0.72);
+  max-width: 62ch;
 }
 
 .legal-content ul {
-  list-style: disc;
-  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.55rem;
+  list-style: none;
+  padding-left: 0;
 }
 
-.legal-content a {
+.legal-content li {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.legal-content li::before {
+  background-color: #c9a96e;
+  content: "";
+  height: 5px;
+  left: 0.15rem;
+  position: absolute;
+  top: 0.85em;
+  transform: rotate(45deg);
+  width: 5px;
+}
+
+.legal-content p a,
+.legal-content li a {
   color: #8b6b3c;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  transition: color 0.25s ease;
+}
+
+.legal-content p a:hover,
+.legal-content li a:hover {
+  color: #2d4a3e;
+}
+
+/* Address-style blocks inside legal sections */
+.legal-content .legal-card {
+  background-color: rgb(255 255 255 / 0.6);
+  border: 1px solid rgb(45 74 62 / 0.1);
+  border-radius: 0.9rem;
+  padding: 1.4rem 1.6rem;
+}
+
+.legal-content .legal-card p {
+  color: rgb(45 74 62 / 0.8);
+  margin-top: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

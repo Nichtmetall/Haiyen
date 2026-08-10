@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Phone, Mail, MessageCircle, ShieldCheck } from "lucide-react";
+import { Menu, X, ChevronDown, ShieldCheck } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useConsent } from "./consent-manager";
@@ -87,9 +87,9 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   }, []);
 
   const getHeaderClasses = () => {
-    if (mobileMenuOpen) return "bg-[#F5F0E8] text-[#2D4A3E] border-b border-[#2D4A3E]/10";
-    if (isScrolled) return "bg-[#F5F0E8]/95 backdrop-blur-md py-4 md:py-6 shadow-sm text-[#2D4A3E]";
-    if (currentPage === "booking") return "bg-transparent py-6 md:py-10 text-[#F5F0E8]";
+    if (mobileMenuOpen) return "bg-[#111]/85 text-[#F5F0E8] border-b border-white/10 backdrop-blur-xl";
+    if (isScrolled) return "bg-[#111]/80 backdrop-blur-xl py-4 md:py-6 shadow-lg shadow-black/10 border-b border-white/10 text-[#F5F0E8]";
+    if (currentPage === "booking" || currentPage === "legal") return "bg-transparent py-6 md:py-10 text-[#F5F0E8]";
     if (currentPage !== "home") return "bg-transparent py-6 md:py-10 text-[#2D4A3E]";
     return "bg-transparent py-6 md:py-10 text-[#F5F0E8]";
   };
@@ -365,22 +365,11 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
               <span className="font-bold text-[#F5F0E8]">Haiyen</span>
               <span className="text-[0.6rem] tracking-[0.4em] font-sans font-semibold mt-1 text-[#C9A96E]">Hairdesign</span>
             </button>
-            <p className="text-[#F5F0E8]/50 font-medium text-sm md:text-base mb-8 md:mb-10">
+            <p className="text-[#F5F0E8]/50 font-medium text-sm md:text-base">
               Ein Ort der Ruhe.
               <br />
               Dein Friseur in Dresden.
             </p>
-            <div className="flex gap-6">
-              <a aria-label="Haiyen Hairdesign anrufen" href="tel:+4935132322434" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
-                <Phone aria-hidden="true" strokeWidth={1.5} className="w-6 h-6" />
-              </a>
-              <a aria-label="E-Mail an Haiyen Hairdesign" href="mailto:info@haiyen-hairdesign.de" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
-                <Mail aria-hidden="true" strokeWidth={1.5} className="w-6 h-6" />
-              </a>
-              <a aria-label="WhatsApp an Haiyen Hairdesign" href="https://wa.me/491745156575" rel="noreferrer" target="_blank" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
-                <MessageCircle aria-hidden="true" strokeWidth={1.5} className="w-6 h-6" />
-              </a>
-            </div>
           </div>
 
           <div>
