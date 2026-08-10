@@ -60,6 +60,19 @@ html {
   background-size: cover;
 }
 
+/* Suppress the default user-agent focus ring on buttons (which appears after a
+   click and remained visible around active nav items), while preserving a
+   clearly visible focus indicator for keyboard navigation. */
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #c9a96e;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
