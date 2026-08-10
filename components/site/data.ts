@@ -6,6 +6,8 @@ export interface ServiceItem {
   title: string;
   desc: string;
   image: string;
+  price: string;
+  duration?: string;
 }
 
 export const SERVICES: ServiceItem[] = [
@@ -13,37 +15,49 @@ export const SERVICES: ServiceItem[] = [
     icon: React.createElement(Scissors, { strokeWidth: 1, className: "w-8 h-8" }),
     title: "Haarschnitte & Styling",
     desc: "Präzise Schnitte – abgestimmt auf Haarstruktur, Typ und Alltag.",
-    image: "/images/galerie/Lisa/IMG_1153.jpg"
+    image: "/images/galerie/Lisa/IMG_1153.jpg",
+    price: "ab 66 €",
+    duration: "ca. 60 Min."
   },
   {
     icon: React.createElement(Palette, { strokeWidth: 1, className: "w-8 h-8" }),
     title: "Colorationen & Balayage",
     desc: "Sanfte Verläufe und kräftige Farben für strahlende Ergebnisse.",
-    image: "/images/galerie/Anika/381afdd4-8238-43c8-9d14-86ba273ed2c2.jpg"
+    image: "/images/galerie/Anika/381afdd4-8238-43c8-9d14-86ba273ed2c2.jpg",
+    price: "ab 305 €",
+    duration: "inkl. Cut & Styling"
   },
   {
     icon: React.createElement(Sparkles, { strokeWidth: 1, className: "w-8 h-8" }),
     title: "Hochzeits- & Festfrisuren",
     desc: "Elegantes Styling und Hochsteckfrisuren für den großen Tag.",
-    image: "/images/galerie/Josi/IMG_1857.jpg"
+    image: "/images/galerie/Josi/IMG_1857.jpg",
+    price: "auf Anfrage",
+    duration: "individuelle Beratung"
   },
   {
     icon: React.createElement(Droplet, { strokeWidth: 1, className: "w-8 h-8" }),
     title: "Haarpflege & Treatments",
     desc: "Tiefenpflege und Haarkuren für gesundes, glänzendes Haar.",
-    image: "/images/galerie/Josi/IMG_3932.jpg"
+    image: "/images/galerie/Josi/IMG_3932.jpg",
+    price: "ab 15 €",
+    duration: "je nach Treatment"
   },
   {
     icon: React.createElement(Heart, { strokeWidth: 1, className: "w-8 h-8" }),
     title: "Nagelpflege",
     desc: "Maniküre und Nageldesign – gepflegt von Kopf bis Fuß.",
-    image: "/images/galerie/Lisa/IMG_1906.jpg"
+    image: "/images/galerie/Lisa/IMG_1906.jpg",
+    price: "auf Anfrage",
+    duration: "nach Aufwand"
   },
   {
     icon: React.createElement(Scissors, { strokeWidth: 1, className: "w-8 h-8" }),
     title: "Haarverlängerungen",
     desc: "Diskrete, natürlich wirkende Extensions für mehr Volumen.",
-    image: "/images/galerie/Lisa/IMG_9435.jpg"
+    image: "/images/galerie/Lisa/IMG_9435.jpg",
+    price: "ab 350 €",
+    duration: "Beratung empfohlen"
   },
 ];
 

@@ -24,7 +24,8 @@ const GaleriePageContentWithParams = () => {
   useEffect(() => {
     const stylist = searchParams.get("stylist");
     if (stylist) {
-      setActiveTab(stylist);
+      const frame = window.requestAnimationFrame(() => setActiveTab(stylist));
+      return () => window.cancelAnimationFrame(frame);
     }
   }, [searchParams]);
 

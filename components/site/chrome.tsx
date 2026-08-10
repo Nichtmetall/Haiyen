@@ -2,16 +2,19 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X, Sparkles, Heart, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { Menu, X, ChevronDown, Phone, Mail, MessageCircle, ShieldCheck } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useConsent } from "./consent-manager";
 
-type PageKey = "home" | "team" | "galerie" | "booking";
+type PageKey = "home" | "team" | "galerie" | "booking" | "legal";
 
 const getPageFromPathname = (pathname: string): PageKey => {
   if (pathname.startsWith("/team")) return "team";
   if (pathname.startsWith("/galerie")) return "galerie";
   if (pathname.startsWith("/booking")) return "booking";
+  if (pathname.startsWith("/impressum") || pathname.startsWith("/datenschutz")) return "legal";
   return "home";
 };
 
@@ -51,9 +54,24 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [bookingDropdownOpen, setBookingDropdownOpen] = useState(false);
   const navigateTo = useSiteNavigation(() => setMobileMenuOpen(false));
+  const { openSettings } = useConsent();
+
+  const handleContactSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const phone = String(formData.get("phone") ?? "");
+    const location = String(formData.get("location") ?? "Striesen");
+    const message = String(formData.get("message") ?? "");
+    const subject = encodeURIComponent(`Anfrage Website – ${name || "neue Kundin / neuer Kunde"}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nE-Mail: ${email}\nTelefon: ${phone || "–"}\nStandort: ${location}\n\nNachricht:\n${message}`,
+    );
+    window.location.href = `mailto:info@haiyen-hairdesign.de?subject=${subject}&body=${body}`;
+  };
 
   useEffect(() => {
     // Only scroll to top if there is no hash and no search params
@@ -89,6 +107,12 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         currentPage === "booking" ? "bg-[#1a1a1a]" : "bg-[#F5F0E8] text-[#2D4A3E]"
       }`}
     >
+      <a
+        href="#main-content"
+        className="fixed left-4 top-3 z-[100] -translate-y-24 rounded-sm bg-[#F5F0E8] px-4 py-3 text-xs font-bold uppercase tracking-wider text-[#2D4A3E] shadow-lg transition-transform focus:translate-y-0"
+      >
+        Zum Inhalt springen
+      </a>
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -96,8 +120,8 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         className={`fixed w-full z-50 transition-all duration-500 ${getHeaderClasses()}`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <button onClick={() => navigateTo("home")} className="text-2xl md:text-3xl font-serif tracking-widest uppercase flex flex-col text-left">
-            <Image src="/images/haiyen_logo_hell.png" alt="Haiyen Hairdesign" width={200} height={200} />
+          <button onClick={() => navigateTo("home")} className="flex shrink-0 flex-col text-left" aria-label="Haiyen Hairdesign – Startseite">
+            <Image className="h-auto w-[108px] md:w-[132px]" src="/images/logos/haiyen_logo_hell.png" alt="Haiyen Hairdesign" width={808} height={246} priority />
           </button>
 
           <nav className="hidden lg:flex items-center gap-12 text-xs tracking-widest uppercase font-bold relative">
@@ -109,22 +133,11 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
               return (
                 <button
                   key={item.key}
+                  aria-current={isLinkActive ? "page" : undefined}
                   onClick={() => navigateTo(item.hash ? "home" : item.key, item.hash)}
-                  onMouseEnter={() => setHoveredLink(item.key)}
-                  onMouseLeave={() => setHoveredLink(null)}
-                  className="relative py-2 transition-colors duration-300 hover:text-[#C9A96E]"
+                  className={`nav-link-sweep relative py-2 transition-colors duration-300 hover:text-[#C9A96E] ${isLinkActive ? "is-active" : ""}`}
                 >
                   <span className="relative z-10">{item.label}</span>
-                  {hoveredLink === item.key && (
-                    <motion.span
-                      layoutId="navUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C9A96E]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  {isLinkActive && !hoveredLink && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
-                  )}
                 </button>
               );
             })}
@@ -135,6 +148,8 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
               onMouseLeave={() => setBookingDropdownOpen(false)}
             >
               <motion.button
+                aria-expanded={bookingDropdownOpen}
+                aria-haspopup="menu"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setBookingDropdownOpen(!bookingDropdownOpen)}
@@ -181,8 +196,8 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
             </div>
           </nav>
 
-          <button className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X strokeWidth={1} className="w-8 h-8" /> : <Menu strokeWidth={1} className="w-8 h-8" />}
+          <button aria-expanded={mobileMenuOpen} aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"} className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X aria-hidden="true" strokeWidth={1} className="w-8 h-8" /> : <Menu aria-hidden="true" strokeWidth={1} className="w-8 h-8" />}
           </button>
         </div>
 
@@ -226,11 +241,12 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         </AnimatePresence>
       </motion.header>
 
-      <motion.div key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="flex-grow">
+      <motion.div id="main-content" key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="flex-grow">
         {children}
       </motion.div>
 
       {/* Contact Form Section */}
+      {currentPage !== "legal" && (
       <section 
         className={`border-t py-20 px-6 relative z-30 transition-colors duration-500 ${
           currentPage === "booking" 
@@ -244,16 +260,15 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
           <div className="w-12 h-px bg-[#C9A96E] mx-auto mb-12" />
           
           <form 
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Vielen Dank! Ihre Nachricht wurde (simuliert) gesendet.");
-            }}
+            onSubmit={handleContactSubmit}
             className="space-y-6 text-left"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col">
-                <label className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Name</label>
+                <label htmlFor="contact-name" className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Name</label>
                 <input 
+                  id="contact-name"
+                  name="name"
                   type="text" 
                   required 
                   placeholder="Ihr Name" 
@@ -263,8 +278,10 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
                 />
               </div>
               <div className="flex flex-col">
-                <label className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>E-Mail</label>
+                <label htmlFor="contact-email" className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>E-Mail</label>
                 <input 
+                  id="contact-email"
+                  name="email"
                   type="email" 
                   required 
                   placeholder="Ihre E-Mail-Adresse" 
@@ -277,8 +294,10 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col">
-                <label className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Telefonnummer</label>
+                <label htmlFor="contact-phone" className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Telefonnummer</label>
                 <input 
+                  id="contact-phone"
+                  name="phone"
                   type="tel" 
                   placeholder="Optional" 
                   className={`bg-[#2D4A3E]/5 border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-[#C9A96E] transition-colors ${
@@ -287,21 +306,25 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
                 />
               </div>
               <div className="flex flex-col">
-                <label className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Gewünschter Standort</label>
+                <label htmlFor="contact-location" className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Gewünschter Standort</label>
                 <select 
+                  id="contact-location"
+                  name="location"
                   className={`bg-[#2D4A3E]/5 border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-[#C9A96E] transition-colors cursor-pointer ${
                     currentPage === "booking" ? "text-white border-white/10 bg-[#1a1a1a]" : "text-[#2D4A3E] border-[#2D4A3E]/10 bg-[#F5F0E8]"
                   }`}
                 >
-                  <option value="striesen">Dresden Striesen (Borsbergstraße)</option>
-                  <option value="neustadt">Dresden Neustadt (Alaunstraße)</option>
+                  <option value="Dresden Striesen">Dresden Striesen (Borsbergstraße)</option>
+                  <option value="Dresden Neustadt">Dresden Neustadt (Bautzner Straße)</option>
                 </select>
               </div>
             </div>
 
             <div className="flex flex-col">
-              <label className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Nachricht</label>
+              <label htmlFor="contact-message" className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${currentPage === "booking" ? "text-white/60" : "text-[#2D4A3E]/60"}`}>Nachricht</label>
               <textarea 
+                id="contact-message"
+                name="message"
                 rows={4} 
                 required
                 placeholder="Wie können wir Ihnen helfen?" 
@@ -310,6 +333,11 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
                 }`}
               />
             </div>
+
+            <p className={`text-xs leading-relaxed ${currentPage === "booking" ? "text-white/45" : "text-[#2D4A3E]/55"}`}>
+              Beim Klick wird eine E-Mail in deinem E-Mail-Programm vorbereitet. Diese Website speichert deine Angaben nicht. Mehr dazu im{" "}
+              <Link className="font-semibold text-[#A78249] underline-offset-4 hover:underline" href="/datenschutz">Datenschutz</Link>.
+            </p>
 
             <div className="text-center pt-2">
               <motion.button
@@ -322,12 +350,13 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
                     : "bg-[#2D4A3E] text-[#F5F0E8] hover:bg-[#C9A96E] hover:text-[#2D4A3E]"
                 }`}
               >
-                Nachricht senden
+                E-Mail vorbereiten
               </motion.button>
             </div>
           </form>
         </div>
       </section>
+      )}
 
       <footer className="bg-[#2D4A3E] text-[#F5F0E8] pt-20 pb-10 md:pt-32 md:pb-16 mt-auto border-t border-[#F5F0E8]/10 relative z-40">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-24">
@@ -342,11 +371,14 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
               Dein Friseur in Dresden.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
-                <Sparkles strokeWidth={1} className="w-6 h-6" />
+              <a aria-label="Haiyen Hairdesign anrufen" href="tel:+4935132322434" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
+                <Phone aria-hidden="true" strokeWidth={1.5} className="w-6 h-6" />
               </a>
-              <a href="#" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
-                <Heart strokeWidth={1} className="w-6 h-6" />
+              <a aria-label="E-Mail an Haiyen Hairdesign" href="mailto:info@haiyen-hairdesign.de" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
+                <Mail aria-hidden="true" strokeWidth={1.5} className="w-6 h-6" />
+              </a>
+              <a aria-label="WhatsApp an Haiyen Hairdesign" href="https://wa.me/491745156575" rel="noreferrer" target="_blank" className="text-[#F5F0E8]/50 hover:text-[#C9A96E] transition-colors">
+                <MessageCircle aria-hidden="true" strokeWidth={1.5} className="w-6 h-6" />
               </a>
             </div>
           </div>
@@ -375,28 +407,45 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
           <div>
             <h4 className="font-serif font-semibold text-xl text-[#C9A96E] mb-6 md:mb-8">Striesen</h4>
             <ul className="space-y-4 font-medium text-sm md:text-base text-[#F5F0E8]/70">
-              <li>Borsbergstraße XX, 01309 Dresden</li>
-              <li className="pt-2 font-bold text-[#F5F0E8]">+49 351 1234567</li>
+              <li><a className="hover:text-white" href="https://www.google.com/maps/search/?api=1&query=Borsbergstra%C3%9Fe+21%2C+01309+Dresden" rel="noreferrer" target="_blank">Borsbergstraße 21<br />01309 Dresden</a></li>
+              <li className="pt-2 font-bold text-[#F5F0E8]"><a className="hover:text-[#C9A96E]" href="tel:+4935132322434">0351 323 22 434</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-serif font-semibold text-xl text-[#C9A96E] mb-6 md:mb-8">Neustadt</h4>
             <ul className="space-y-4 font-medium text-sm md:text-base text-[#F5F0E8]/70">
-              <li>Alaunstraße XX, 01099 Dresden</li>
-              <li className="pt-2 font-bold text-[#F5F0E8]">+49 351 7654321</li>
+              <li><a className="hover:text-white" href="https://www.google.com/maps/search/?api=1&query=Bautzner+Stra%C3%9Fe+46%2C+01099+Dresden" rel="noreferrer" target="_blank">Bautzner Straße 46<br />01099 Dresden</a></li>
+              <li className="pt-2 font-bold text-[#F5F0E8]"><a className="hover:text-[#C9A96E]" href="tel:+493517926654">0351 792 66 54</a></li>
             </ul>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-6 pt-8 md:pt-10 border-t border-[#F5F0E8]/10 flex justify-between text-[10px] md:text-xs font-bold text-[#F5F0E8]/40 uppercase tracking-widest">
+        <div className="max-w-7xl mx-auto px-6 pt-8 md:pt-10 border-t border-[#F5F0E8]/10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between text-[10px] md:text-xs font-bold text-[#F5F0E8]/40 uppercase tracking-widest">
           <p>© 2026 Haiyen Hairdesign</p>
-          <div className="flex gap-4 md:gap-8">
-            <a href="#" className="hover:text-[#F5F0E8]">
+          <div className="flex flex-wrap gap-4 md:gap-8">
+            <Link href="/impressum" className="hover:text-[#F5F0E8]">
               Impressum
-            </a>
+            </Link>
+            <Link href="/datenschutz" className="hover:text-[#F5F0E8]">
+              Datenschutz
+            </Link>
+            <button onClick={openSettings} type="button" className="inline-flex items-center gap-1.5 hover:text-[#F5F0E8]">
+              <ShieldCheck aria-hidden="true" className="h-3.5 w-3.5" />
+              Cookie-Einstellungen
+            </button>
           </div>
         </div>
       </footer>
+
+      {isScrolled && currentPage !== "booking" && currentPage !== "legal" && (
+        <button
+          onClick={() => navigateTo("booking")}
+          type="button"
+          className="fixed bottom-4 left-4 right-4 z-40 min-h-14 rounded-sm bg-[#C9A96E] px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-[#17342b] shadow-[0_12px_35px_rgba(0,0,0,0.3)] transition-colors hover:bg-[#F5F0E8] lg:hidden"
+        >
+          Termin online buchen
+        </button>
+      )}
     </div>
   );
 }

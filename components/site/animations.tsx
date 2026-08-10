@@ -26,19 +26,12 @@ export const FadeUp = ({
 export const ClipReveal = ({
   children,
   className = "",
-  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
 }) => (
-  <motion.div
-    initial={{ clipPath: "inset(100% 0 0 0)" }}
-    whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-    viewport={{ once: true, margin: "-15%" }}
-    transition={{ duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] }}
-    className={className}
-  >
+  <motion.div className={className}>
     {children}
   </motion.div>
 );

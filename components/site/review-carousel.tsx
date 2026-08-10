@@ -21,8 +21,8 @@ export const ReviewCarousel = () => {
 
   return (
     <div className="relative max-w-5xl mx-auto px-4 md:px-12 h-[380px] md:h-[400px] flex items-center justify-center overflow-hidden bg-white/30 backdrop-blur-sm rounded-2xl border border-[#2D4A3E]/5 shadow-xl">
-      <button onClick={() => paginate(-1)} className="absolute left-4 z-20 p-2 text-[#C9A96E] hover:text-[#2D4A3E] transition-colors cursor-pointer focus:outline-none">
-        <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
+      <button aria-label="Vorherige Bewertung" onClick={() => paginate(-1)} className="absolute left-2 md:left-4 z-20 p-2 text-[#C9A96E] hover:text-[#2D4A3E] transition-colors cursor-pointer">
+        <ChevronLeft aria-hidden="true" className="w-8 h-8 md:w-10 md:h-10" />
       </button>
 
       <div className="w-full h-full relative flex items-center justify-center">
@@ -69,14 +69,16 @@ export const ReviewCarousel = () => {
         </AnimatePresence>
       </div>
 
-      <button onClick={() => paginate(1)} className="absolute right-4 z-20 p-2 text-[#C9A96E] hover:text-[#2D4A3E] transition-colors cursor-pointer focus:outline-none">
-        <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+      <button aria-label="Nächste Bewertung" onClick={() => paginate(1)} className="absolute right-2 md:right-4 z-20 p-2 text-[#C9A96E] hover:text-[#2D4A3E] transition-colors cursor-pointer">
+        <ChevronRight aria-hidden="true" className="w-8 h-8 md:w-10 md:h-10" />
       </button>
 
       {/* Pagination indicators */}
       <div className="absolute bottom-6 flex justify-center gap-2.5 w-full">
         {REVIEWS.map((_, i) => (
           <button
+            aria-label={`Bewertung ${i + 1} anzeigen`}
+            aria-current={i === imageIndex ? "true" : undefined}
             key={i}
             onClick={() => {
               setPage([i, i > imageIndex ? 1 : -1]);

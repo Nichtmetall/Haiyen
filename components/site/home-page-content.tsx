@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
-import { Award, Palette, Calendar, Heart, Star, MapPin, ChevronDown } from "lucide-react";
+import { Award, Palette, Calendar, Heart, MapPin, ChevronDown } from "lucide-react";
 import { TEAM } from "./data";
 import { FadeUp, ClipReveal } from "./animations";
 import { HeroParallax } from "./hero-parallax";
@@ -10,6 +10,7 @@ import { Marquee } from "./marquee";
 import { ServicesSection } from "./services-section";
 import { HorizontalGallery } from "./horizontal-gallery";
 import { ReviewCarousel } from "./review-carousel";
+import { ConsentEmbed } from "./consent-manager";
 
 type NavigateTo = (page: string, hash?: string, query?: string) => void;
 
@@ -323,7 +324,7 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeUp className="text-center mb-16 md:mb-20 relative z-10">
             <h2 className="text-4xl md:text-7xl lg:text-[8rem] leading-none font-serif font-semibold mb-4 tracking-tighter uppercase text-[#2D4A3E]">Stimmen</h2>
-            <p className="text-[#C9A96E] uppercase font-bold tracking-[0.25em] text-xs md:text-sm mt-3">4,7 / 5 Sterne auf Google</p>
+            <p className="text-[#C9A96E] uppercase font-bold tracking-[0.25em] text-xs md:text-sm mt-3">4,9 / 5 bei Planity · Striesen</p>
             <div className="w-12 h-px bg-[#C9A96E] mx-auto mt-6" />
           </FadeUp>
           <FadeUp delay={0.15} className="relative z-10">
@@ -344,13 +345,9 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <ClipReveal className="group">
               <div className="aspect-[16/10] md:aspect-[16/9] overflow-hidden mb-8 md:mb-10 bg-gray-100 relative shadow-md rounded-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.411652750669!2d13.788544!3d51.045437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4709c5e316d95955%3A0xc6c7d7b056114eb3!2sBorsbergstra%C3%9Fe%2C%2001309%20Dresden!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: "grayscale(100%) contrast(1.1) brightness(0.95)" }}
-                  allowFullScreen
-                  loading="lazy"
+                <ConsentEmbed
+                  src="https://www.google.com/maps?q=Borsbergstra%C3%9Fe+21,+01309+Dresden&output=embed"
+                  title="Google Maps – Haiyen Hairdesign Striesen"
                   className="group-hover:filter-none transition-all duration-[1200ms] transform group-hover:scale-102 origin-center"
                 />
               </div>
@@ -361,15 +358,15 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
               <ul className="space-y-4 font-medium text-[#2D4A3E]/80 mb-10 text-sm md:text-base text-left">
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Adresse</span>
-                  <span>Borsbergstraße XX, 01309 Dresden</span>
+                  <a className="hover:text-[#A78249]" href="https://www.google.com/maps/search/?api=1&query=Borsbergstra%C3%9Fe+21%2C+01309+Dresden" rel="noreferrer" target="_blank">Borsbergstraße 21, 01309 Dresden</a>
                 </li>
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Telefon</span>
-                  <span className="font-bold text-[#2D4A3E]">+49 351 1234567</span>
+                  <a className="font-bold text-[#2D4A3E] hover:text-[#A78249]" href="tel:+4935132322434">0351 323 22 434</a>
                 </li>
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Zeiten</span>
-                  <span>Di - Fr: 09:00 - 19:00 Uhr | Sa: 08:00 - 14:00 Uhr</span>
+                  <span>Mo – Fr: 09:00 – 19:00 Uhr | Sa: 09:00 – 16:00 Uhr</span>
                 </li>
               </ul>
               <motion.button
@@ -384,13 +381,9 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
 
             <ClipReveal delay={0.15} className="group">
               <div className="aspect-[16/10] md:aspect-[16/9] overflow-hidden mb-8 md:mb-10 bg-gray-100 relative shadow-md rounded-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2507.241838600746!2d13.749008!3d51.066922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4709cf384400e96b%3A0xc3f6be7baeb33827!2sAlaunstra%C3%9Fe%2C%2001099%20Dresden!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: "grayscale(100%) contrast(1.1) brightness(0.95)" }}
-                  allowFullScreen
-                  loading="lazy"
+                <ConsentEmbed
+                  src="https://www.google.com/maps?q=Bautzner+Stra%C3%9Fe+46,+01099+Dresden&output=embed"
+                  title="Google Maps – Haiyen Hairdesign Neustadt"
                   className="group-hover:filter-none transition-all duration-[1200ms] transform group-hover:scale-102 origin-center"
                 />
               </div>
@@ -401,15 +394,15 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
               <ul className="space-y-4 font-medium text-[#2D4A3E]/80 mb-10 text-sm md:text-base text-left">
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Adresse</span>
-                  <span>Alaunstraße XX, 01099 Dresden</span>
+                  <a className="hover:text-[#A78249]" href="https://www.google.com/maps/search/?api=1&query=Bautzner+Stra%C3%9Fe+46%2C+01099+Dresden" rel="noreferrer" target="_blank">Bautzner Straße 46, 01099 Dresden</a>
                 </li>
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Telefon</span>
-                  <span className="font-bold text-[#2D4A3E]">+49 351 7654321</span>
+                  <a className="font-bold text-[#2D4A3E] hover:text-[#A78249]" href="tel:+493517926654">0351 792 66 54</a>
                 </li>
                 <li className="flex gap-4">
                   <span className="w-20 text-xs uppercase tracking-widest font-bold text-[#C9A96E] mt-0.5">Zeiten</span>
-                  <span>Di - Fr: 10:00 - 20:00 Uhr | Sa: 09:00 - 15:00 Uhr</span>
+                  <span>Mo: 09:00 – 17:00 Uhr | Di – Fr: 09:00 – 19:00 Uhr | Sa: 09:00 – 14:00 Uhr</span>
                 </li>
               </ul>
               <motion.button
@@ -437,6 +430,8 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
             <FadeUp key={idx} delay={idx * 0.05}>
               <div className="border-b border-[#2D4A3E]/10">
                 <button
+                  aria-expanded={openFaq === idx}
+                  aria-controls={`faq-answer-${idx}`}
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                   className="w-full text-left py-6 md:py-8 flex justify-between items-center focus:outline-none group cursor-pointer"
                 >
@@ -452,6 +447,7 @@ export const HomePageContent = ({ navigateTo }: { navigateTo: NavigateTo }) => {
                 <AnimatePresence>
                   {openFaq === idx && (
                     <motion.div
+                      id={`faq-answer-${idx}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

@@ -67,11 +67,12 @@ export const ServicesSection = ({ navigateTo }: { navigateTo: NavigateTo }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-16">
           {SERVICES.map((s, idx) => (
             <FadeUp key={idx} delay={idx * 0.08}>
-              <div
+              <button
+                type="button"
                 onMouseEnter={() => setActiveHoveredImage(s.image)}
                 onMouseLeave={() => setActiveHoveredImage(null)}
                 onClick={() => navigateTo("booking")}
-                className="border-b border-[#2D4A3E]/15 pb-8 group cursor-pointer relative overflow-hidden"
+                className="w-full border-b border-[#2D4A3E]/15 pb-8 group cursor-pointer relative overflow-hidden text-left"
               >
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl md:text-2xl font-serif font-semibold group-hover:text-[#C9A96E] transition-colors duration-300 flex items-center gap-3">
@@ -80,19 +81,30 @@ export const ServicesSection = ({ navigateTo }: { navigateTo: NavigateTo }) => {
                   </h3>
                 </div>
                 <p className="text-[#2D4A3E]/70 font-medium mb-5 leading-relaxed pr-6 text-sm md:text-base">{s.desc}</p>
-                <div className="text-xs uppercase tracking-widest font-bold flex items-center gap-2 text-[#2D4A3E] group-hover:text-[#C9A96E] transition-colors">
-                  Jetzt buchen
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                  >
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </motion.span>
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <span className="block font-serif text-lg font-semibold text-[#2D4A3E]">{s.price}</span>
+                    {s.duration && <span className="mt-0.5 block text-[10px] uppercase tracking-wider text-[#2D4A3E]/50">{s.duration}</span>}
+                  </div>
+                  <span className="text-xs uppercase tracking-widest font-bold flex items-center gap-2 text-[#2D4A3E] group-hover:text-[#C9A96E] transition-colors">
+                    Termin wählen
+                    <motion.span
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    >
+                      <ArrowRight aria-hidden="true" className="w-3.5 h-3.5" />
+                    </motion.span>
+                  </span>
                 </div>
-              </div>
+              </button>
             </FadeUp>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-xs leading-relaxed text-[#2D4A3E]/55">
+          Preise sind Richtwerte und können je nach Haarlänge, Materialeinsatz und Aufwand variieren.
+          Den verbindlichen Preis stimmen wir vor der Behandlung mit dir ab.
+        </p>
 
         <FadeUp delay={0.2} className="text-center mt-20 md:mt-28">
           <motion.button
