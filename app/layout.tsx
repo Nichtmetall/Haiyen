@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import { SITE_URL, SOCIAL_IMAGE } from "@/components/site/seo";
 import SiteChrome from "@/components/site/chrome";
 import { ConsentProvider } from "@/components/site/consent-manager";
 import "./globals.css";
@@ -15,13 +16,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://haiyen-hairdesign.de"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Haiyen Hairdesign – Friseur in Dresden",
     template: "%s | Haiyen Hairdesign",
   },
   description:
     "Meisterliches Friseurhandwerk, Balayage und Extensions in Dresden Striesen und Neustadt. Termin rund um die Uhr online buchen.",
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   openGraph: {
     locale: "de_DE",
     siteName: "Haiyen Hairdesign",
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
       "Zwei Salons, ein Gefühl: meisterliches Friseurhandwerk in Dresden Striesen und Neustadt.",
     images: [
       {
-        url: "/og.png",
+        url: SOCIAL_IMAGE,
         width: 1200,
         height: 630,
         alt: "Haiyen Hairdesign – Zwei Salons. Ein Gefühl.",
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Haiyen Hairdesign – Friseur in Dresden",
     description: "Zwei Salons, ein Gefühl: Striesen & Neustadt.",
-    images: ["/og.png"],
+    images: [SOCIAL_IMAGE],
   },
 };
 

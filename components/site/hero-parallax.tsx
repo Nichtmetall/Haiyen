@@ -1,32 +1,26 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { ScrollImage } from "./animations";
 import { SALON_IMAGES } from "./salon-images";
 
-export const HeroParallax = () => {
-  const reduced = useReducedMotion();
-  const photo = SALON_IMAGES.hero;
-  return (
-    <section className="salon-hero" aria-label="Willkommen bei Haiyen Hairdesign">
-      <div className="salon-hero-background">
-        <Image src={photo.src} alt={photo.alt} fill preload sizes="100vw" style={{ objectPosition: photo.position }} />
+export const HeroParallax = () => (
+  <section className="salon-hero" aria-labelledby="hero-title">
+    <div className="salon-hero-layout section-shell">
+      <div className="salon-hero-content">
+        <p className="eyebrow light">Haiyen Hairdesign · Striesen & Neustadt</p>
+        <h1 id="hero-title">Dein Friseur<br />in Dresden.<br /><em>Dein Moment.</em></h1>
+        <p className="salon-hero-intro">Ein Schnitt, der zu dir passt. Eine Farbe, die dich strahlen lässt. Entdecke Haarschnitte, Balayage und Extensions mit persönlicher Beratung in unseren zwei Dresdner Salons.</p>
+        <div className="salon-hero-actions">
+          <Link className="button button-gold" href="/booking">Termin online buchen <ArrowUpRight size={18} aria-hidden="true" /></Link>
+          <a className="salon-hero-secondary" href="#leistungen">Leistungen & Preise <ArrowUpRight size={16} aria-hidden="true" /></a>
+        </div>
+        <div className="salon-hero-note"><span>Zwei Salons in Dresden</span><span>Online deinen Wunschtermin finden</span></div>
       </div>
-      <div className="salon-hero-shade" />
-      <div className="salon-hero-content section-shell">
-        <p className="eyebrow light">Haiyen Hairdesign · Dresden</p>
-        <motion.h1 initial={reduced ? false : { opacity: 0.7, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
-          Dein Haar.<br /><em>Dein Moment.</em>
-        </motion.h1>
-        <p className="salon-hero-intro">Ankommen. Wohlfühlen. Ganz du sein.</p>
-        <Link className="button button-gold" href="/booking">Deinen Termin buchen <ArrowUpRight size={18} /></Link>
-      </div>
-      <div className="salon-hero-bottom section-shell">
-        <a href="#standorte" className="salon-hero-locations">Striesen & Neustadt <ArrowUpRight size={15} /></a>
-        {photo.isStock && <a className="salon-hero-credit" href={photo.source} target="_blank" rel="noreferrer">Salon-Inspiration · {photo.provider}</a>}
-      </div>
-    </section>
-  );
-};
+      <figure data-parallax className="salon-hero-visual">
+        <ScrollImage strength={4} className="salon-hero-photo"><Image src={SALON_IMAGES.hero.src} alt={SALON_IMAGES.hero.alt} fill preload sizes="(max-width: 760px) 88vw, (max-width: 1455px) 40vw, 580px" style={{ objectPosition: SALON_IMAGES.hero.position }} /></ScrollImage>
+        <figcaption><span>Ankommen. Wohlfühlen. Du sein.</span><a href="#salon">Ein Blick in den Salon <ArrowUpRight size={16} aria-hidden="true" /></a></figcaption>
+      </figure>
+    </div>
+  </section>
+);

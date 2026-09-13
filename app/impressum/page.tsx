@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/components/site/seo";
 import { LegalPage } from "@/components/site/legal-page";
 
-export const metadata: Metadata = {
-  title: "Impressum",
-  description: "Anbieterkennzeichnung von Haiyen Hairdesign in Dresden.",
-};
+export const metadata = pageMetadata(
+  "Impressum",
+  "Anbieterkennzeichnung und Kontakt von Haiyen Hairdesign in Dresden.",
+  "/impressum"
+);
 
 export default function ImpressumPage() {
   return (

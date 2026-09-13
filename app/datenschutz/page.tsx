@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/components/site/seo";
 import { LegalPage } from "@/components/site/legal-page";
 
-export const metadata: Metadata = {
-  title: "Datenschutz",
-  description: "Datenschutzerklärung von Haiyen Hairdesign in Dresden.",
-};
+export const metadata = pageMetadata(
+  "Datenschutz",
+  "Informationen zum Datenschutz auf der Website von Haiyen Hairdesign in Dresden.",
+  "/datenschutz"
+);
 
 export default function DatenschutzPage() {
   return (

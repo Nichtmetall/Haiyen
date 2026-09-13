@@ -1,56 +1,63 @@
-import type { Metadata } from "next";
+import { SITE_URL, pageMetadata } from "@/components/site/seo";
+import { LOCATIONS } from "@/components/site/locations";
+import { SALON_IMAGES, TEAM_IMAGE } from "@/components/site/salon-images";
 import HomePage from "@/components/site/home-page";
 
-export const metadata: Metadata = {
-  title: "Friseur Dresden – Striesen & Neustadt",
-  description: "Meisterliches Friseurhandwerk, Balayage, Coloration und Extensions in Dresden Striesen und Neustadt. Termin 24/7 online buchen.",
-};
+export const metadata = pageMetadata(
+  "Friseur Dresden – Striesen & Neustadt",
+  "Dein Friseur in Dresden: Haarschnitte, Balayage, Coloration und Extensions bei Haiyen Hairdesign in Striesen & Neustadt. Jetzt Termin online buchen.",
+  "/"
+);
 
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "HairSalon",
-        "@id": "https://haiyen-hairdesign.de/#striesen",
-        name: "Haiyen Hairdesign Striesen",
-        url: "https://haiyen-hairdesign.de/",
-        telephone: "+49 351 32322434",
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "Haiyen Hairdesign",
+        url: `${SITE_URL}/`,
+        logo: `${SITE_URL}/images/logos/haiyen_logo_hell.png`,
+        image: Object.values(SALON_IMAGES).map(photo => `${SITE_URL}${photo.src}`),
         email: "info@haiyen-hairdesign.de",
-        priceRange: "€€€",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Borsbergstraße 21",
-          postalCode: "01309",
-          addressLocality: "Dresden",
-          addressCountry: "DE",
-        },
-        openingHoursSpecification: [
-          { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "19:00" },
-          { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "16:00" },
-        ],
+        department: Object.keys(LOCATIONS).map(key => ({ "@id": `${SITE_URL}/#${key}` })),
       },
       {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: "Haiyen Hairdesign",
+        url: `${SITE_URL}/`,
+        inLanguage: "de-DE",
+        publisher: { "@id": `${SITE_URL}/#organization` },
+      },
+      ...Object.entries(LOCATIONS).map(([key, location]) => ({
         "@type": "HairSalon",
-        "@id": "https://haiyen-hairdesign.de/#neustadt",
-        name: "Haiyen Hairdesign Neustadt",
-        url: "https://haiyen-hairdesign.de/",
-        telephone: "+49 351 7926654",
+        "@id": `${SITE_URL}/#${key}`,
+        name: `Haiyen Hairdesign Dresden ${location.name}`,
+        url: `${SITE_URL}/#${key}`,
+        mainEntityOfPage: `${SITE_URL}/`,
+        parentOrganization: { "@id": `${SITE_URL}/#organization` },
+        image: `${SITE_URL}${TEAM_IMAGE.src}`,
+        telephone: location.phoneHref,
         email: "info@haiyen-hairdesign.de",
-        priceRange: "€€€",
+        hasMap: location.mapUrl,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Bautzner Straße 46",
-          postalCode: "01099",
+          streetAddress: location.street,
+          postalCode: location.postalCode,
           addressLocality: "Dresden",
+          addressRegion: "Sachsen",
           addressCountry: "DE",
         },
-        openingHoursSpecification: [
-          { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "09:00", closes: "17:00" },
-          { "@type": "OpeningHoursSpecification", dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "19:00" },
-          { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "14:00" },
-        ],
-      },
+        areaServed: { "@type": "City", name: "Dresden", containedInPlace: { "@type": "State", name: "Sachsen" } },
+        openingHoursSpecification: location.hours.map(hours => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: hours.weekdays,
+          opens: hours.opens,
+          closes: hours.closes,
+        })),
+      })),
     ],
   };
 

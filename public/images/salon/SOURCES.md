@@ -9,6 +9,10 @@ No AI images were generated. Downloaded on 2026-09-11 and resized/compressed for
 
 Licenses: https://www.pexels.com/license/ and https://unsplash.com/license
 
-To replace a placeholder with an original salon photo, update the corresponding slot in
-`components/site/salon-images.ts`: `src`, `alt`, `position`, and `isStock: false`.
-The photo credit is then hidden automatically.
+These stock files are no longer referenced by the website as of 2026-09-13.
+
+The current salon photographs were supplied by the owner in `transfer-01a09b14`.
+Originals and the source-to-output mapping are kept in
+`assets/originals/2026-09-salon-team/README.md`. Current photo slots are defined in
+`components/site/salon-images.ts`. The salon location has not been confirmed,
+so these photographs are not assigned to individual branches.

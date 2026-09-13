@@ -63,6 +63,14 @@ export const SERVICES: ServiceItem[] = [
 
 export const FAQS = [
   {
+    q: "Wo finde ich Haiyen Hairdesign in Dresden?",
+    a: "Du findest unsere Friseursalons in Dresden-Striesen auf der Borsbergstraße 21, 01309 Dresden, und in Dresden-Neustadt auf der Bautzner Straße 46, 01099 Dresden. Adressen, Öffnungszeiten und die Anfahrt findest du im Bereich Unsere Salons.",
+  },
+  {
+    q: "Welche Friseurleistungen bietet ihr in Dresden an?",
+    a: "Zu unseren Leistungen gehören Haarschnitte und Styling, Colorationen und Balayage, Haarverlängerungen, Haarpflege sowie Hochzeits- und Festfrisuren. Die Preise und weitere Informationen findest du unter Leistungen & Preise. Für deinen Termin kannst du zwischen Striesen und Neustadt wählen.",
+  },
+  {
     q: "Wie buche ich einen Termin?",
     a: "Ganz entspannt online über unsere Website, per Telefon oder WhatsApp – an beiden Standorten in Dresden.",
   },
@@ -108,7 +116,7 @@ export interface TeamMember {
   role: string;
   img: string;
   specialty: string;
-  category: "master" | "top";
+  category: "master" | "top" | "junior";
   slug: string;
   location: string;
   skills: string[];
@@ -118,8 +126,8 @@ export interface TeamMember {
 export const TEAM: TeamMember[] = [
   {
     name: "Hai Yen",
-    role: "Inhaberin und Masterstylistin",
-    img: "/images/galerie/Haiyen/team.JPG",
+    role: "Inhaberin · Masterstylist",
+    img: "/images/team/hai-yen.webp",
     specialty: "Balayage-Expertin & Typberatung",
     category: "master",
     slug: "haiyen",
@@ -129,8 +137,8 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Lisa Goßmann",
-    role: "Masterstylistin",
-    img: "/images/galerie/Lisa/team.JPG",
+    role: "Masterstylist",
+    img: "/images/team/lisa-gossmann.webp",
     specialty: "Hochsteckfrisuren & Premium Extensions",
     category: "master",
     slug: "lisa",
@@ -140,10 +148,10 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Anika Weidlich",
-    role: "Topstylistin",
-    img: "/images/galerie/Anika/team.JPG",
+    role: "Masterstylist",
+    img: "/images/team/anika-weidlich.webp",
     specialty: "Kreative Farb- & Strähnentechniken",
-    category: "top",
+    category: "master",
     slug: "anika",
     location: "Dresden Neustadt",
     skills: ["Highlights", "Creative Color", "Blondierung"],
@@ -151,7 +159,7 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Josi",
-    role: "Stylistin",
+    role: "Topstylist",
     img: "/images/galerie/Josi/team.JPG",
     specialty: "Moderne Haarschnitte & Styling-Trends",
     category: "top",
@@ -159,6 +167,28 @@ export const TEAM: TeamMember[] = [
     location: "Dresden Striesen",
     skills: ["Cuts", "Styling", "Pflege-Rituale"],
     quote: "Der beste Look ist der, den du morgens in fünf Minuten selbst hinbekommst.",
+  },
+  {
+    name: "Lea-Sophie Rothstock",
+    role: "Masterstylist",
+    img: "/images/team/lea-sophie-rothstock.webp",
+    specialty: "",
+    category: "master",
+    slug: "lea-sophie",
+    location: "Dresden",
+    skills: [],
+    quote: "",
+  },
+  {
+    name: "Minh Anh Cu",
+    role: "Junior Stylist",
+    img: "/images/team/minh-anh-cu.webp",
+    specialty: "",
+    category: "junior",
+    slug: "minh-anh",
+    location: "Dresden",
+    skills: [],
+    quote: "",
   }
 ];
 

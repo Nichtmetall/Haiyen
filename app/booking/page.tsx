@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/components/site/seo";
 import { Suspense } from "react";
 import { BookingPageContent } from "@/components/site/booking-page";
 
-export const metadata: Metadata = {
-  title: "Termin online buchen – Friseur Haiyen Hairdesign",
-  description: "Buche jetzt deinen Friseurtermin in Dresden Striesen oder Neustadt online.",
-};
+export const metadata = pageMetadata(
+  "Friseurtermin in Dresden online buchen",
+  "Buche deinen Friseurtermin bei Haiyen Hairdesign in Dresden-Striesen oder Dresden-Neustadt. Wähle deinen Salon und finde online deinen Wunschtermin.",
+  "/booking"
+);
 
 export default function BookingPage() {
   return (

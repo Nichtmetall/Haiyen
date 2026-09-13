@@ -8,6 +8,7 @@ import { ArrowUpRight, Menu, X, Plus } from "lucide-react";
 import { MotionConfig } from "framer-motion";
 import { useConsent } from "./consent-manager";
 import { LOCATIONS } from "./locations";
+import { SiteMotion } from "./site-motion";
 
 export const useSiteNavigation = (onNavigate?: () => void) => {
   const router = useRouter();
@@ -37,6 +38,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   };
   const links = [{ href: "/", label: "Bei uns" }, { href: "/team", label: "Das Team" }, { href: "/galerie", label: "Galerie" }, { href: "/#standorte", label: "Unsere Salons" }];
   return <MotionConfig reducedMotion="user"><div className="site-wrap">
+    <SiteMotion />
     <a className="skip-link" href="#main-content">Zum Inhalt springen</a>
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}><div className="nav-inner"><Link href="/" aria-label="Haiyen Hairdesign – Startseite" className="brand"><Image src="/images/logos/haiyen_logo_hell.png" alt="Haiyen Hairdesign" width={808} height={246} preload /></Link><nav className="desktop-nav" aria-label="Hauptnavigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}</nav><Link href="/booking" className="nav-book">Termin buchen <ArrowUpRight size={16} /></Link><button className="menu-button" aria-label="Menü öffnen" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><Menu size={25} /></button></div></header>
     <dialog className="mobile-menu" ref={menu} aria-label="Navigation"><div className="mobile-menu-top"><span>Haiyen Hairdesign</span><button aria-label="Menü schließen" onClick={closeMenu}><X size={25} /></button></div><nav>{links.map(link => <Link key={link.href} href={link.href} onClick={closeMenu}>{link.label}<ArrowUpRight size={22} /></Link>)}</nav><p className="eyebrow light">Dein nächster Besuch</p>{Object.entries(LOCATIONS).map(([key, loc]) => <Link className="button button-gold" key={key} onClick={closeMenu} href={`/booking?location=${key}`}>Termin in {loc.name}<ArrowUpRight size={18} /></Link>)}</dialog>
