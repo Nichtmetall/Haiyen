@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { ScrollImage } from "./animations";
+import { FadeImage } from "./fade-image";
 import { SALON_IMAGES } from "./salon-images";
 
 export const HeroParallax = () => (
@@ -18,7 +18,7 @@ export const HeroParallax = () => (
         <div className="salon-hero-note"><span>Zwei Salons in Dresden</span><span>Online deinen Wunschtermin finden</span></div>
       </div>
       <figure data-parallax className="salon-hero-visual">
-        <ScrollImage strength={4} className="salon-hero-photo"><Image src={SALON_IMAGES.hero.src} alt={SALON_IMAGES.hero.alt} fill preload sizes="(max-width: 760px) 88vw, (max-width: 1455px) 40vw, 580px" style={{ objectPosition: SALON_IMAGES.hero.position }} /></ScrollImage>
+        <ScrollImage strength={4} className="salon-hero-photo"><FadeImage src={SALON_IMAGES.hero.src} alt={SALON_IMAGES.hero.alt} fill preload sizes="(max-width: 760px) 88vw, (max-width: 1455px) 40vw, 580px" style={{ objectPosition: SALON_IMAGES.hero.position }} /></ScrollImage>
         <figcaption><span>Ankommen. Wohlfühlen. Du sein.</span><a href="#salon">Ein Blick in den Salon <ArrowUpRight size={16} aria-hidden="true" /></a></figcaption>
       </figure>
     </div>

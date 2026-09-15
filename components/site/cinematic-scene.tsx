@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import { FadeImage } from "./fade-image";
 import { motion, useReducedMotion, useMotionValue, useTransform } from "framer-motion";
 
 export function CinematicScene() {
@@ -58,9 +58,9 @@ export function CinematicScene() {
       <div ref={stickyRef} className="cinema-sticky">
         <motion.div className="cinema-frame" style={reduced ? undefined : { clipPath: frame }}>
           <motion.div className="cinema-photo" style={reduced ? undefined : { scale }}>
-            <Image src="/images/galerie/Josi/IMG_8571.jpg" alt="Warme, goldene Wellen – eine Arbeit von Josi" fill sizes="100vw" />
+            <FadeImage src="/images/galerie/Josi/IMG_8571.jpg" alt="Warme, goldene Wellen – eine Arbeit von Josi" fill sizes="100vw" />
           </motion.div>
-          {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: secondImage, scale }}><Image src="/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg" alt="Weiche Farbverläufe und Wellen, gestaltet von Anika" fill sizes="100vw" /></motion.div>}
+          {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: secondImage, scale }}><FadeImage src="/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg" alt="Weiche Farbverläufe und Wellen, gestaltet von Anika" fill sizes="100vw" /></motion.div>}
           <div className="cinema-shade" />
           <div className="cinema-label eyebrow light">Ein Moment. Nur für dich.</div>
           <div className="cinema-chapters" aria-hidden={!reduced}>

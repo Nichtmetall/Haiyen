@@ -44,19 +44,11 @@ export const SERVICES: ServiceItem[] = [
     duration: "je nach Treatment"
   },
   {
-    icon: React.createElement(Heart, { strokeWidth: 1, className: "w-8 h-8" }),
-    title: "Nagelpflege",
-    desc: "Maniküre und Nageldesign – gepflegt von Kopf bis Fuß.",
-    image: "/images/galerie/Lisa/IMG_1906.jpg",
-    price: "auf Anfrage",
-    duration: "nach Aufwand"
-  },
-  {
     icon: React.createElement(Scissors, { strokeWidth: 1, className: "w-8 h-8" }),
     title: "Haarverlängerungen",
     desc: "Diskrete, natürlich wirkende Extensions für mehr Volumen.",
     image: "/images/galerie/Lisa/IMG_9435.jpg",
-    price: "ab 350 €",
+    price: "auf Anfrage",
     duration: "Beratung empfohlen"
   },
 ];
@@ -136,9 +128,9 @@ export const TEAM: TeamMember[] = [
     quote: "Ein guter Schnitt beginnt mit dem Zuhören – erst dann greife ich zur Schere.",
   },
   {
-    name: "Lisa Goßmann",
+    name: "Lisa",
     role: "Masterstylist",
-    img: "/images/team/lisa-gossmann.webp",
+    img: "/images/team/lisa.webp",
     specialty: "Hochsteckfrisuren & Premium Extensions",
     category: "master",
     slug: "lisa",
@@ -147,9 +139,9 @@ export const TEAM: TeamMember[] = [
     quote: "Extensions dürfen niemals auffallen – nur das Ergebnis soll auffallen.",
   },
   {
-    name: "Anika Weidlich",
+    name: "Anika",
     role: "Masterstylist",
-    img: "/images/team/anika-weidlich.webp",
+    img: "/images/team/anika.webp",
     specialty: "Kreative Farb- & Strähnentechniken",
     category: "master",
     slug: "anika",
@@ -160,8 +152,8 @@ export const TEAM: TeamMember[] = [
   {
     name: "Josi",
     role: "Topstylist",
-    img: "/images/galerie/Josi/team.JPG",
-    specialty: "Moderne Haarschnitte & Styling-Trends",
+    img: "/images/team/josi.webp",
+    specialty: "",
     category: "top",
     slug: "josi",
     location: "Dresden Striesen",
@@ -169,9 +161,9 @@ export const TEAM: TeamMember[] = [
     quote: "Der beste Look ist der, den du morgens in fünf Minuten selbst hinbekommst.",
   },
   {
-    name: "Lea-Sophie Rothstock",
+    name: "Lea-Sophie",
     role: "Masterstylist",
-    img: "/images/team/lea-sophie-rothstock.webp",
+    img: "/images/team/lea-sophie.jpeg",
     specialty: "",
     category: "master",
     slug: "lea-sophie",
@@ -180,9 +172,9 @@ export const TEAM: TeamMember[] = [
     quote: "",
   },
   {
-    name: "Minh Anh Cu",
+    name: "Minh Anh",
     role: "Junior Stylist",
-    img: "/images/team/minh-anh-cu.webp",
+    img: "/images/team/minh-anh.webp",
     specialty: "",
     category: "junior",
     slug: "minh-anh",
@@ -208,13 +200,13 @@ export interface GalleryItem {
 }
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  { src: "/images/galerie/Anika/381afdd4-8238-43c8-9d14-86ba273ed2c2.jpg", stylist: "anika", stylistName: "Anika Weidlich", caption: "Kreative Coloration & Highlights" },
-  { src: "/images/galerie/Lisa/IMG_1153.jpg", stylist: "lisa", stylistName: "Lisa Goßmann", caption: "Premium Extensions & Schnitt" },
-  { src: "/images/galerie/Josi/IMG_1857.jpg", stylist: "josi", stylistName: "Josi", caption: "Glamour-Wellen & Hochstecken" },
-  { src: "/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg", stylist: "anika", stylistName: "Anika Weidlich", caption: "Sanftes Balayage & Styling" },
-  { src: "/images/galerie/Lisa/IMG_9435.jpg", stylist: "lisa", stylistName: "Lisa Goßmann", caption: "Haarverlängerung & Volumen" },
-  { src: "/images/galerie/Josi/IMG_3932.jpg", stylist: "josi", stylistName: "Josi", caption: "Präzisions-Haarschnitt" },
-  { src: "/images/galerie/Anika/IMG_0943.jpg", stylist: "anika", stylistName: "Anika Weidlich", caption: "Frischer Look & Styling" },
-  { src: "/images/galerie/Lisa/IMG_1906.jpg", stylist: "lisa", stylistName: "Lisa Goßmann", caption: "Flechtfrisur & Styling" },
-  { src: "/images/galerie/Josi/IMG_8571.jpg", stylist: "josi", stylistName: "Josi", caption: "Volumenföhnen & Pflege" }
+  { src: "/images/galerie/Anika/381afdd4-8238-43c8-9d14-86ba273ed2c2.jpg", stylist: "anika", stylistName: "Anika", caption: "Highlights & Blowout" },
+  { src: "/images/galerie/Lisa/IMG_1153.jpg", stylist: "lisa", stylistName: "Lisa", caption: "Kreative Coloration & Schnitt" },
+  { src: "/images/galerie/Josi/IMG_1857.jpg", stylist: "josi", stylistName: "Josi", caption: "Highlights & Cut" },
+  { src: "/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg", stylist: "anika", stylistName: "Anika", caption: "Soft Balayage & Cut" },
+  { src: "/images/galerie/Lisa/IMG_9435.jpg", stylist: "lisa", stylistName: "Lisa", caption: "Highlights & Cut" },
+  { src: "/images/galerie/Josi/IMG_3932.jpg", stylist: "josi", stylistName: "Josi", caption: "Highlights & Styling" },
+  { src: "/images/galerie/Anika/IMG_0943.jpg", stylist: "anika", stylistName: "Anika", caption: "Soft Balayage & Styling" },
+  { src: "/images/galerie/Lisa/IMG_1906.jpg", stylist: "lisa", stylistName: "Lisa", caption: "Soft Balayage & Styling" },
+  { src: "/images/galerie/Josi/IMG_8571.jpg", stylist: "josi", stylistName: "Josi", caption: "Cut & Styling" }
 ];

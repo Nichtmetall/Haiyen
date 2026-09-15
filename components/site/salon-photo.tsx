@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { ParallaxFigure, ScrollImage } from "./animations";
+import { FadeImage } from "./fade-image";
 import { SALON_IMAGES } from "./salon-images";
 
 export function SalonPhoto({ slot, className = "" }: { slot: keyof typeof SALON_IMAGES; className?: string }) {
@@ -9,7 +9,7 @@ export function SalonPhoto({ slot, className = "" }: { slot: keyof typeof SALON_
   return (
     <ParallaxFigure direction={slot === "care" ? -1 : 1} className={`salon-photo ${className}`}>
       <ScrollImage direction={slot === "care" ? -1 : 1} className="salon-photo-frame">
-        <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 88vw, 42vw" style={{ objectPosition: photo.position }} />
+        <FadeImage src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 88vw, 42vw" style={{ objectPosition: photo.position }} />
       </ScrollImage>
     </ParallaxFigure>
   );

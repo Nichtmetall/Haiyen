@@ -12,7 +12,7 @@ const targets = [
   "main .button", "main .text-link", "main figure:not([data-parallax])",
   ".salon-hero-content > *", ".salon-hero-visual figcaption",
   ".brand-carousel-heading", ".brand-carousel-window",
-  ".salon-story-copy > *", ".team-group-photo", ".home-team-intro > div:last-child",
+  ".salon-story-copy > *", ".team-group-photo", ".home-team-intro > div:last-child", ".team-preview",
   ".review-carousel",
   ".filter-row", ".gallery-count", ".gallery-caption", ".gallery-empty", ".gallery-end",
   ".booking-locations > a", ".booking-sidebar > *", ".booking-widget-section",
