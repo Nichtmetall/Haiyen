@@ -45,6 +45,7 @@ export function CinematicScene() {
   const scale = useTransform(progress, [0, 1], [1.03, 1.22]);
   const frame = useTransform(progress, [0, 0.23, 1], ["inset(9% 7% 9% 7%)", "inset(0% 0% 0% 0%)", "inset(0% 0% 0% 0%)"]);
   const secondImage = useTransform(progress, [0.25, 0.48], [0, 1]);
+  const thirdImage = useTransform(progress, [0.53, 0.76], [0, 1]);
   const first = useTransform(progress, [0, 0.18, 0.29], [1, 1, 0]);
   const second = useTransform(progress, [0.23, 0.34, 0.45, 0.57], [0, 1, 1, 0]);
   const third = useTransform(progress, [0.53, 0.65, 1], [0, 1, 1]);
@@ -61,6 +62,7 @@ export function CinematicScene() {
             <FadeImage src="/images/galerie/Josi/IMG_8571.jpg" alt="Warme, goldene Wellen – eine Arbeit von Josi" fill sizes="100vw" />
           </motion.div>
           {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: secondImage, scale }}><FadeImage src="/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg" alt="Weiche Farbverläufe und Wellen, gestaltet von Anika" fill sizes="100vw" /></motion.div>}
+          {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: thirdImage, scale }}><FadeImage src="/images/galerie/Lisa/IMG_1153.jpg" alt="Kreative Coloration und Schnitt – eine Arbeit von Lisa" fill sizes="100vw" /></motion.div>}
           <div className="cinema-shade" />
           <div className="cinema-label eyebrow light">Ein Moment. Nur für dich.</div>
           <div className="cinema-chapters" aria-hidden={!reduced}>
