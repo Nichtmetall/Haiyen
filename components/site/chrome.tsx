@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Instagram, Menu, X, Plus } from "lucide-react";
+import { ArrowUpRight, Menu, X, Plus } from "lucide-react";
 import { MotionConfig } from "framer-motion";
 import { useConsent } from "./consent-manager";
 import { LOCATIONS } from "./locations";
@@ -19,6 +19,14 @@ const WhatsAppIcon = () => (
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.4-4.7A8.5 8.5 0 1 1 20.5 11.7Z" />
     <path d="M8.1 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.8c-.2.2-.1.4 0 .6.7 1.2 1.7 2.2 3 2.8.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.6-.2l1.9.9c.3.1.4.3.4.5 0 .4-.2 1.4-.8 1.9-.6.6-1.5.8-2.4.6-1-.2-2.8-.9-4.7-2.6-1.5-1.4-2.6-3.1-2.9-4.3-.3-1.1.1-1.8.5-2.3.4-.4.8-.6 1.2-.6Z" />
+  </svg>
+);
+
+const InstagramIcon = () => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none" />
   </svg>
 );
 
@@ -41,7 +49,7 @@ function MobileBookingLink() {
 function ContactSocialLinks() {
   return <nav className="contact-socials" aria-label="Kontakt über Social Media">
     <a href="https://wa.me/491745156575" target="_blank" rel="noreferrer"><WhatsAppIcon /><span>WhatsApp</span></a>
-    <a href="https://www.instagram.com/haiyenhairdesign_striesen/" target="_blank" rel="noreferrer"><Instagram aria-hidden="true" /><span>Instagram</span></a>
+    <a href="https://www.instagram.com/haiyenhairdesign_striesen/" target="_blank" rel="noreferrer"><InstagramIcon /><span>Instagram</span></a>
   </nav>;
 }
 
@@ -76,7 +84,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         <span>WhatsApp</span>
       </a>
       <a href="https://www.instagram.com/haiyenhairdesign_striesen/" target="_blank" rel="noreferrer" aria-label="Haiyen Hairdesign auf Instagram öffnen">
-        <Instagram aria-hidden="true" />
+        <InstagramIcon />
         <span>Instagram</span>
       </a>
     </nav>
