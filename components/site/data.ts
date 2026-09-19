@@ -1,5 +1,5 @@
 import React from "react";
-import { Scissors, Palette, Sparkles, Droplet, Heart } from "lucide-react";
+import { Scissors, Palette, Sparkles, Droplet } from "lucide-react";
 
 export interface ServiceItem {
   icon: React.ReactNode;
@@ -55,28 +55,44 @@ export const SERVICES: ServiceItem[] = [
 
 export const FAQS = [
   {
-    q: "Wo finde ich Haiyen Hairdesign in Dresden?",
-    a: "Du findest unsere Friseursalons in Dresden-Striesen auf der Borsbergstraße 21, 01309 Dresden, und in Dresden-Neustadt auf der Bautzner Straße 46, 01099 Dresden. Adressen, Öffnungszeiten und die Anfahrt findest du im Bereich Unsere Salons.",
+    q: "Wie buche ich meinen Termin?",
+    a: "Online über unsere Website, telefonisch oder per WhatsApp. Wähle deinen Salon in Striesen oder der Neustadt und die gewünschte Leistung.",
   },
   {
-    q: "Welche Friseurleistungen bietet ihr in Dresden an?",
-    a: "Zu unseren Leistungen gehören Haarschnitte und Styling, Colorationen und Balayage, Haarverlängerungen, Haarpflege sowie Hochzeits- und Festfrisuren. Die Preise und weitere Informationen findest du unter Leistungen & Preise. Für deinen Termin kannst du zwischen Striesen und Neustadt wählen.",
+    q: "Welche Leistung soll ich buchen?",
+    a: "Wähle die Leistung passend zu deinem Haarwunsch. Bei deinem ersten Besuch, einer größeren Veränderung oder Unsicherheit beraten wir dich vorab telefonisch.",
   },
   {
-    q: "Wie buche ich einen Termin?",
-    a: "Ganz entspannt online über unsere Website, per Telefon oder WhatsApp – an beiden Standorten in Dresden.",
+    q: "Wie lange dauert eine Balayage?",
+    a: "Plane 3–5 Stunden ein. Die genaue Dauer hängt von Haarlänge, Haardichte, Ausgangsfarbe und deinem Wunschergebnis ab.",
   },
   {
-    q: "Muss ich eine Anzahlung leisten?",
-    a: "Nein, die Online-Buchung ist für dich völlig kostenlos und unverbindlich.",
+    q: "Ist eine Anzahlung erforderlich?",
+    a: "Ja, bei größeren Dienstleistungen ist eine Anzahlung erforderlich. Die Höhe und Zahlungsdetails teilen wir dir bei der Terminvereinbarung mit.",
   },
   {
-    q: "Wie lange dauert eine Balayage-Behandlung?",
-    a: "Je nach Haarlänge und gewünschtem Ergebnis nehmen wir uns ca. 2–3 Stunden Zeit für dich.",
+    q: "Gibt es Kinderhaarschnitte oder Kinderpreise?",
+    a: "Wir bieten keine speziellen Kinderhaarschnitte und keine Kinderpreise an. Für jeden Haarschnitt gilt der reguläre Damen- oder Herrenpreis – unabhängig vom Alter.",
   },
   {
-    q: "Bietet ihr auch Haarschnitte für Kinder an?",
-    a: "Ja, wir heißen auch die Kleinsten in beiden Salons herzlich willkommen.",
+    q: "Wie kann ich meinen Termin ändern oder absagen?",
+    a: "Bitte melde dich möglichst frühzeitig telefonisch in deinem Salon. So können wir deinen Termin gemeinsam verschieben oder absagen.",
+  },
+  {
+    q: "Warum kann der Preis variieren?",
+    a: "Haarlänge, Material und Zeitaufwand bestimmen den Preis. Den verbindlichen Preis stimmen wir vor der Behandlung mit dir ab.",
+  },
+  {
+    q: "Was unterscheidet Strähnen von Balayage?",
+    a: "Klassische Strähnen setzen Highlights nah am Ansatz. Bei Balayage entstehen weichere Übergänge und ein natürlicher Farbverlauf.",
+  },
+  {
+    q: "Ansatzfarbe oder Komplettfarbe – was passt zu mir?",
+    a: "Eine Ansatzfarbe frischt den nachgewachsenen Bereich auf. Eine Komplettfarbe bezieht auch Längen und Spitzen ein. Wir beraten dich zur passenden Variante.",
+  },
+  {
+    q: "Kann ich in einem Termin deutlich heller werden?",
+    a: "Das hängt von deiner Ausgangsfarbe und Haarstruktur ab. Für ein schonendes Ergebnis können mehrere Termine nötig sein. Wir besprechen mit dir, was möglich ist.",
   },
 ];
 
