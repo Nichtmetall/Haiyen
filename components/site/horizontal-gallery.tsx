@@ -76,7 +76,7 @@ export const HorizontalGallery = () => {
 
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         <div className="absolute top-24 md:top-32 left-6 md:left-24 z-10 pointer-events-none">
-          <motion.h2 style={{ y: textY }} className="text-6xl md:text-8xl lg:text-[14rem] leading-none font-serif font-semibold text-[#3b2c26] opacity-[0.03] tracking-tighter uppercase whitespace-nowrap">
+          <motion.h2 style={{ y: textY }} className="text-6xl md:text-8xl lg:text-[14rem] leading-none font-serif font-semibold text-[#201713] opacity-[0.03] tracking-tighter uppercase whitespace-nowrap">
             Inspiration
           </motion.h2>
         </div>
@@ -93,14 +93,14 @@ export const HorizontalGallery = () => {
               />
               <div
                 onClick={() => navigateTo("galerie")}
-                className="absolute inset-0 bg-[#3b2c26]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center cursor-pointer"
+                className="absolute inset-0 bg-[#201713]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center cursor-pointer"
               >
                 <Sparkles strokeWidth={1} className="w-8 h-8 md:w-12 md:h-12 text-[#F5F0E8]" />
               </div>
             </div>
           ))}
 
-          <div className="w-[85vw] md:w-[35vw] shrink-0 aspect-[4/5] md:aspect-[3/4] flex flex-col items-center justify-center bg-[#3b2c26] text-[#F5F0E8] ml-2 md:ml-10 mr-6 md:mr-24 shadow-xl relative overflow-hidden group rounded-lg">
+          <div className="w-[85vw] md:w-[35vw] shrink-0 aspect-[4/5] md:aspect-[3/4] flex flex-col items-center justify-center bg-[#201713] text-[#F5F0E8] ml-2 md:ml-10 mr-6 md:mr-24 shadow-xl relative overflow-hidden group rounded-lg">
             {/* Background design accents */}
             <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full border border-white/5 pointer-events-none" />
             <div className="absolute -left-16 -bottom-16 w-48 h-48 rounded-full border border-white/5 pointer-events-none" />

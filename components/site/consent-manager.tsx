@@ -110,7 +110,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
       {bannerOpen && (
         <section
           aria-labelledby="consent-title"
-          className="fixed inset-x-3 bottom-3 z-[90] mx-auto max-w-5xl rounded-2xl border border-[#C9A96E]/25 bg-[#30221c] p-5 text-[#F5F0E8] shadow-[0_24px_80px_rgba(0,0,0,0.35)] md:inset-x-6 md:bottom-6 md:p-7"
+          className="fixed inset-x-3 bottom-3 z-[90] mx-auto max-w-5xl rounded-2xl border border-[#C9A96E]/25 bg-[#1c1410] p-5 text-[#F5F0E8] shadow-[0_24px_80px_rgba(0,0,0,0.35)] md:inset-x-6 md:bottom-6 md:p-7"
         >
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div className="flex gap-4">
@@ -153,7 +153,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
                 Einstellungen
               </button>
               <button
-                className="min-h-12 rounded-sm bg-[#C9A96E] px-4 py-3 text-xs font-bold uppercase tracking-wider text-[#30221c] transition-colors hover:bg-[#F5F0E8]"
+                className="min-h-12 rounded-sm bg-[#C9A96E] px-4 py-3 text-xs font-bold uppercase tracking-wider text-[#1c1410] transition-colors hover:bg-[#F5F0E8]"
                 onClick={() => persist(true)}
                 type="button"
               >
@@ -172,7 +172,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
         >
           <section
             aria-labelledby="privacy-settings-title"
-            className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-[#F5F0E8] p-6 text-[#3b2c26] shadow-2xl md:p-9"
+            className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-[#F5F0E8] p-6 text-[#201713] shadow-2xl md:p-9"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -185,7 +185,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
               </div>
               <button
                 aria-label="Einstellungen schließen"
-                className="rounded-full p-2 transition-colors hover:bg-[#3b2c26]/10"
+                className="rounded-full p-2 transition-colors hover:bg-[#201713]/10"
                 onClick={() => setSettingsOpen(false)}
                 type="button"
               >
@@ -193,33 +193,33 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
               </button>
             </div>
 
-            <p className="mt-4 text-sm leading-relaxed text-[#3b2c26]/70">
+            <p className="mt-4 text-sm leading-relaxed text-[#201713]/70">
               Notwendige Funktionen sind immer aktiv. Externe Inhalte können Daten an Drittanbieter
               übertragen und werden deshalb nur mit deiner Einwilligung geladen.
             </p>
 
             <div className="mt-7 space-y-3">
-              <div className="flex items-start justify-between gap-5 rounded-xl border border-[#3b2c26]/10 bg-white/60 p-5">
+              <div className="flex items-start justify-between gap-5 rounded-xl border border-[#201713]/10 bg-white/60 p-5">
                 <div className="flex gap-3">
                   <Check aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[#82663b]" />
                   <div>
                     <h3 className="font-semibold">Technisch notwendig</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-[#3b2c26]/65">
+                    <p className="mt-1 text-sm leading-relaxed text-[#201713]/65">
                       Speichert ausschließlich deine Datenschutzauswahl lokal auf diesem Gerät.
                     </p>
                   </div>
                 </div>
-                <span className="shrink-0 text-xs font-bold uppercase tracking-wider text-[#3b2c26]/70">
+                <span className="shrink-0 text-xs font-bold uppercase tracking-wider text-[#201713]/70">
                   Immer aktiv
                 </span>
               </div>
 
-              <label className="flex cursor-pointer items-start justify-between gap-5 rounded-xl border border-[#3b2c26]/10 bg-white/60 p-5 transition-colors hover:border-[#C9A96E]/60">
+              <label className="flex cursor-pointer items-start justify-between gap-5 rounded-xl border border-[#201713]/10 bg-white/60 p-5 transition-colors hover:border-[#C9A96E]/60">
                 <div className="flex gap-3">
                   <MapPinned aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[#82663b]" />
                   <div>
                     <span className="font-semibold">Externe Medien</span>
-                    <p className="mt-1 text-sm leading-relaxed text-[#3b2c26]/65">
+                    <p className="mt-1 text-sm leading-relaxed text-[#201713]/65">
                       Lädt Google Maps und die Terminbuchung von Planity. Dabei können
                       Verbindungsdaten an Google und Planity übertragen werden.
                     </p>
@@ -227,7 +227,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
                 </div>
                 <input
                   checked={draftExternalMedia}
-                  className="mt-1 h-5 w-5 accent-[#3b2c26]"
+                  className="mt-1 h-5 w-5 accent-[#201713]"
                   onChange={(event) => setDraftExternalMedia(event.target.checked)}
                   type="checkbox"
                 />
@@ -236,14 +236,14 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
 
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
               <button
-                className="min-h-12 rounded-sm border border-[#3b2c26] px-5 py-3 text-xs font-bold uppercase tracking-wider transition-colors hover:bg-[#3b2c26]/5"
+                className="min-h-12 rounded-sm border border-[#201713] px-5 py-3 text-xs font-bold uppercase tracking-wider transition-colors hover:bg-[#201713]/5"
                 onClick={() => persist(false)}
                 type="button"
               >
                 Alle ablehnen
               </button>
               <button
-                className="min-h-12 rounded-sm bg-[#3b2c26] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#F5F0E8] transition-colors hover:bg-[#C9A96E] hover:text-[#3b2c26]"
+                className="min-h-12 rounded-sm bg-[#201713] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#F5F0E8] transition-colors hover:bg-[#C9A96E] hover:text-[#201713]"
                 onClick={() => persist(draftExternalMedia)}
                 type="button"
               >
@@ -328,21 +328,21 @@ export function ConsentEmbed({
   return (
     <div
       className={`flex h-full w-full flex-col items-center justify-center px-6 py-12 text-center ${
-        isDark ? "bg-[#141414] text-[#F5F0E8]" : "bg-[#EAE2D6] text-[#3b2c26]"
+        isDark ? "bg-[#141414] text-[#F5F0E8]" : "bg-[#EAE2D6] text-[#201713]"
       }`}
     >
       <span className={isDark ? "text-[#C9A96E]" : "text-[#82663b]"}>
         {icon ?? <MapPinned aria-hidden="true" className="h-9 w-9" />}
       </span>
       <p className="mt-4 font-serif text-xl font-semibold md:text-2xl">{heading}</p>
-      <p className={`mt-2 max-w-sm text-xs leading-relaxed ${isDark ? "text-[#F5F0E8]/60" : "text-[#3b2c26]/65"}`}>
+      <p className={`mt-2 max-w-sm text-xs leading-relaxed ${isDark ? "text-[#F5F0E8]/60" : "text-[#201713]/65"}`}>
         {description}
       </p>
       <button
         className={`mt-5 min-h-12 rounded-sm px-6 py-3 text-[10px] font-bold uppercase tracking-widest transition-colors ${
           isDark
             ? "bg-[#C9A96E] text-[#141414] hover:bg-[#F5F0E8]"
-            : "bg-[#3b2c26] text-[#F5F0E8] hover:bg-[#C9A96E] hover:text-[#3b2c26]"
+            : "bg-[#201713] text-[#F5F0E8] hover:bg-[#C9A96E] hover:text-[#201713]"
         }`}
         onClick={allowExternalMedia}
         type="button"
@@ -353,7 +353,7 @@ export function ConsentEmbed({
         {fallbackHref && (
           <a
             className={`text-[10px] font-semibold underline-offset-4 hover:underline ${
-              isDark ? "text-[#F5F0E8]/60" : "text-[#3b2c26]/60"
+              isDark ? "text-[#F5F0E8]/60" : "text-[#201713]/60"
             }`}
             href={fallbackHref}
             rel="noreferrer"
