@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Menu, X, Plus } from "lucide-react";
+import { ArrowUpRight, Menu, Phone, X, Plus } from "lucide-react";
 import { MotionConfig } from "framer-motion";
 import { useConsent } from "./consent-manager";
 import { LOCATIONS } from "./locations";
@@ -50,6 +50,7 @@ function ContactSocialLinks() {
   return <nav className="contact-socials" aria-label="Kontakt über Social Media">
     <a href="https://wa.me/491745156575" target="_blank" rel="noreferrer"><WhatsAppIcon /><span>WhatsApp</span></a>
     <a href="https://www.instagram.com/haiyenhairdesign_striesen/" target="_blank" rel="noreferrer"><InstagramIcon /><span>Instagram</span></a>
+    <a href={`tel:${LOCATIONS.striesen.phoneHref}`} aria-label="Salon Striesen anrufen"><Phone aria-hidden="true" /><span>Telefon</span></a>
   </nav>;
 }
 
@@ -86,6 +87,10 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
       <a href="https://www.instagram.com/haiyenhairdesign_striesen/" target="_blank" rel="noreferrer" aria-label="Haiyen Hairdesign auf Instagram öffnen">
         <InstagramIcon />
         <span>Instagram</span>
+      </a>
+      <a href={`tel:${LOCATIONS.striesen.phoneHref}`} aria-label="Salon Striesen anrufen">
+        <Phone aria-hidden="true" />
+        <span>Anrufen</span>
       </a>
     </nav>
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}><div className="nav-inner"><Link href="/" aria-label="Haiyen Hairdesign – Startseite" className="brand"><Image src="/images/logos/haiyen_logo_hell.png" alt="Haiyen Hairdesign" width={808} height={246} preload /></Link><nav className="desktop-nav" aria-label="Hauptnavigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}</nav><Link href="/booking" className="nav-book">Termin buchen <ArrowUpRight size={16} /></Link><button className="menu-button" aria-label="Menü öffnen" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><Menu size={25} /></button></div></header>

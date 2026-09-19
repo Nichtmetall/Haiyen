@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState, type TransitionEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TEAM, type TeamMember } from "./data";
-import { FadeImage } from "./fade-image";
 
 const COUNT = TEAM.length;
 const SLIDES = [...TEAM, ...TEAM, ...TEAM];
@@ -14,10 +14,11 @@ function PersonCard({ member, interactive }: { member: TeamMember; interactive: 
   const content = (
     <>
       <div className="portrait">
-        <FadeImage
+        <Image
           src={member.img}
           alt={interactive ? member.name : ""}
           fill
+          loading="eager"
           sizes="(max-width: 760px) 42vw, (max-width: 1000px) 28vw, 22vw"
         />
       </div>
@@ -26,12 +27,8 @@ function PersonCard({ member, interactive }: { member: TeamMember; interactive: 
     </>
   );
 
-  if (!interactive) {
-    return <div className="team-preview-person" aria-hidden="true">{content}</div>;
-  }
-
   return (
-    <Link href={`/team#${member.slug}`} className="team-preview-person">
+    <Link href={`/team#${member.slug}`} className="team-preview-person" aria-hidden={!interactive} tabIndex={interactive ? undefined : -1}>
       {content}
     </Link>
   );
@@ -45,8 +42,17 @@ export const TeamPreviewCarousel = () => {
 
   useEffect(() => {
     if (animate) return;
-    const frame = requestAnimationFrame(() => setAnimate(true));
-    return () => cancelAnimationFrame(frame);
+    let nextFrame = 0;
+    const frame = requestAnimationFrame(() => {
+      nextFrame = requestAnimationFrame(() => {
+        setAnimate(true);
+        busy.current = false;
+      });
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      cancelAnimationFrame(nextFrame);
+    };
   }, [animate]);
 
   const paginate = (direction: number) => {
@@ -67,15 +73,16 @@ export const TeamPreviewCarousel = () => {
   };
 
   const handleTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
-    if (event.target !== event.currentTarget) return;
+    if (event.target !== event.currentTarget || event.propertyName !== "transform") return;
     if (index >= COUNT * 2) {
       setAnimate(false);
       setIndex(index - COUNT);
     } else if (index < COUNT) {
       setAnimate(false);
       setIndex(index + COUNT);
+    } else {
+      busy.current = false;
     }
-    busy.current = false;
   };
 
   return (
