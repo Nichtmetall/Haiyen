@@ -12,7 +12,7 @@ export const TeamPageContent = () => {
   const [filter, setFilter] = useState("all");
   return (
     <main className="team-page section-shell">
-      <header className="page-intro"><p className="eyebrow">Persönlich für dich da</p><h1>Dein Haar.<br /><em>Unser Team.</em></h1><p>Hai Yen, Lisa, Anika, Josi, Lea-Sophie und Minh Anh. Sechs Persönlichkeiten für deinen Lieblingslook – in unseren Friseursalons in Dresden-Striesen und Dresden-Neustadt.</p></header>
+      <header className="page-intro"><p className="eyebrow">Persönlich für dich da</p><h1>Dein Haar.<br /><em>Unser Team.</em></h1><p>Hai Yen, Lisa, Anika, Lea-Sophie, Josi und Minh Anh. Sechs Persönlichkeiten für deinen Lieblingslook – in unseren Friseursalons in Dresden-Striesen und Dresden-Neustadt.</p></header>
       <figure className="team-page-group"><FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={1800} height={1800} sizes="(max-width: 760px) 88vw, 720px" /><figcaption>Haiyen Hairdesign · Dein Friseurteam in Dresden</figcaption></figure>
       <section className="team-minimal">
         <div className="filter-row" aria-label="Team filtern">{[{ id: "all", label: "Das ganze Team" }, { id: "master", label: "Masterstylist" }, { id: "top", label: "Topstylist" }, { id: "junior", label: "Junior Stylist" }].map(item => <button aria-pressed={filter === item.id} className={filter === item.id ? "active" : ""} key={item.id} onClick={() => setFilter(item.id)}>{item.label}</button>)}</div>
