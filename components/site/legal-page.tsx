@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { FadeIn } from "@/components/FadeIn";
 
 export type LegalSection = {
   id: string;
@@ -40,14 +41,24 @@ export function LegalPage({
         />
 
         <div className="relative mx-auto max-w-5xl">
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C9A96E]">{eyebrow}</span>
-          <h1 className="mt-5 font-serif text-5xl font-semibold uppercase tracking-tighter md:text-8xl">{title}</h1>
-          <div className="mt-7 h-px w-12 bg-[#C9A96E]" />
+          <FadeIn delay={0.08}>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C9A96E]">{eyebrow}</span>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <h1 className="mt-5 font-serif text-5xl font-semibold uppercase tracking-tighter md:text-8xl">{title}</h1>
+          </FadeIn>
+          <FadeIn delay={0.32}>
+            <div className="mt-7 h-px w-12 bg-[#C9A96E]" />
+          </FadeIn>
           {intro && (
-            <p className="mt-7 max-w-2xl text-sm font-medium leading-relaxed text-[#F5F0E8]/70 md:text-base">{intro}</p>
+            <FadeIn delay={0.42}>
+              <p className="mt-7 max-w-2xl text-sm font-medium leading-relaxed text-[#F5F0E8]/70 md:text-base">{intro}</p>
+            </FadeIn>
           )}
           {updatedAt && (
-            <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5F0E8]/70">Stand: {updatedAt}</p>
+            <FadeIn delay={0.52}>
+              <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5F0E8]/70">Stand: {updatedAt}</p>
+            </FadeIn>
           )}
         </div>
       </header>
@@ -55,11 +66,11 @@ export function LegalPage({
       {highlights && highlights.length > 0 && (
         <div className="border-b border-[#201713]/10 bg-white/60 px-6 py-10 md:py-14">
           <dl className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {highlights.map((item) => (
-              <div key={item.label}>
+            {highlights.map((item, i) => (
+              <FadeIn key={item.label} delay={i * 0.1}>
                 <dt className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#82663b]">{item.label}</dt>
                 <dd className="mt-2 text-sm font-medium leading-relaxed text-[#201713]/80">{item.value}</dd>
-              </div>
+              </FadeIn>
             ))}
           </dl>
         </div>
@@ -89,15 +100,18 @@ export function LegalPage({
 
         <article className="legal-content">
           {sections.map((section, idx) => (
-            <section key={section.id} id={section.id}>
-              <div className="legal-section-head">
-                <span className="legal-section-num">{String(idx + 1).padStart(2, "0")}</span>
-                <h2>{section.title}</h2>
-              </div>
-              {section.content}
-            </section>
+            <FadeIn key={section.id} delay={Math.min(idx * 0.06, 0.24)}>
+              <section id={section.id}>
+                <div className="legal-section-head">
+                  <span className="legal-section-num">{String(idx + 1).padStart(2, "0")}</span>
+                  <h2>{section.title}</h2>
+                </div>
+                {section.content}
+              </section>
+            </FadeIn>
           ))}
 
+          <FadeIn delay={0.1}>
           <div className="mt-16 flex flex-col gap-4 rounded-2xl border border-[#201713]/10 bg-white/70 p-7 sm:flex-row sm:items-center sm:justify-between md:p-9">
             <div>
               <h2 className="font-serif text-xl font-semibold md:text-2xl">Noch Fragen offen?</h2>
@@ -120,6 +134,7 @@ export function LegalPage({
               </Link>
             </div>
           </div>
+          </FadeIn>
         </article>
       </div>
     </main>
