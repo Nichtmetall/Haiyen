@@ -27,8 +27,13 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 7rem;
+}
+
+.lenis.lenis-smooth .booking-widget iframe,
+.lenis.lenis-smooth .location-map iframe {
+  pointer-events: auto;
 }
 
 :where(a, button, input, select, textarea):focus-visible {

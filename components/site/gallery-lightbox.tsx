@@ -77,7 +77,7 @@ export function GalleryLightbox({ items, initialIndex, onClose }: { items: Galle
   };
 
   return (
-    <dialog ref={dialog} className="gallery-lightbox" aria-label="Bildergalerie" onCancel={onClose} onClick={event => { if (event.target === event.currentTarget) onClose(); }} onKeyDown={event => { if (event.key === "ArrowRight") { event.preventDefault(); void change(1); } if (event.key === "ArrowLeft") { event.preventDefault(); void change(-1); } }}>
+    <dialog ref={dialog} className="gallery-lightbox" aria-label="Bildergalerie" data-lenis-prevent onCancel={onClose} onClick={event => { if (event.target === event.currentTarget) onClose(); }} onKeyDown={event => { if (event.key === "ArrowRight") { event.preventDefault(); void change(1); } if (event.key === "ArrowLeft") { event.preventDefault(); void change(-1); } }}>
       <button autoFocus className="lightbox-close" onClick={onClose} aria-label="Bild schließen"><X size={27} /></button>
       <div className="lightbox-content">
         <div className="lightbox-stage" aria-busy={loading}>

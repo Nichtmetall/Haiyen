@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html data-scroll-behavior="smooth" suppressHydrationWarning lang="de" className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}>
+    <html suppressHydrationWarning lang="de" className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <ConsentProvider>
           <SiteChrome>{children}</SiteChrome>
