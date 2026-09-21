@@ -3,12 +3,15 @@
 import { useEffect, useRef } from "react";
 import { FadeImage } from "./fade-image";
 import { motion, useReducedMotion, useMotionValue, useTransform } from "framer-motion";
+import { useLenis } from "lenis/react";
 
 export function CinematicScene() {
   const ref = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const progress = useMotionValue(0);
+
+  const scheduleRef = useRef<() => void>(() => undefined);
 
   useEffect(() => {
     if (reduced) return;
@@ -28,21 +31,25 @@ export function CinematicScene() {
     const schedule = () => {
       if (!frameId) frameId = window.requestAnimationFrame(measure);
     };
+    scheduleRef.current = schedule;
     const resizeObserver = new ResizeObserver(schedule);
     resizeObserver.observe(section);
     resizeObserver.observe(sticky);
-    window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     measure();
 
     return () => {
       window.cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
-      window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
+      scheduleRef.current = () => undefined;
     };
   }, [progress, reduced]);
-  const scale = useTransform(progress, [0, 1], [1.03, 1.22]);
+
+  useLenis(() => {
+    if (!reduced) scheduleRef.current();
+  });
+  const scale = useTransform(progress, [0, 1], [1.02, 1.08]);
   const frame = useTransform(progress, [0, 0.23, 1], ["inset(9% 7% 9% 7%)", "inset(0% 0% 0% 0%)", "inset(0% 0% 0% 0%)"]);
   const secondImage = useTransform(progress, [0.25, 0.48], [0, 1]);
   const thirdImage = useTransform(progress, [0.53, 0.76], [0, 1]);

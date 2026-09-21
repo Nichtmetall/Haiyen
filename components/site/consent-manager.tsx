@@ -168,6 +168,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
         <div
           aria-modal="true"
           className="fixed inset-0 z-[95] flex items-end justify-center bg-[#211813]/70 p-3 backdrop-blur-sm md:items-center md:p-6"
+          data-lenis-prevent
           role="dialog"
         >
           <section
