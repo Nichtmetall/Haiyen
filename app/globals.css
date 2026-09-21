@@ -281,7 +281,7 @@ button:focus-visible {
 }
 
 /* Haiyen — warm editorial typography, real people and deliberate motion. */
-:root { --espresso: #201713; --cream: #f5f0e8; --gold: #c9a96e; --ink-muted: #70635b; --rule: #20171326; }
+:root { --espresso: #201713; --cream: #f5f0e8; --gold: #c9a96e; --ink-muted: #70635b; --rule: #20171326; --image-radius: 14px; }
 body { font-size: 14px; }
 button, a, summary { -webkit-tap-highlight-color: transparent; }
 button, summary { cursor: pointer; }
@@ -304,6 +304,8 @@ p { line-height: 1.8; }
 .button-gold:hover { background: var(--cream); }
 .button-primary { color: var(--cream); background: var(--espresso); }
 .button-primary:hover { background: #120d0a; }
+.button-outline { color: var(--cream); background: transparent; border-color: #c9a96e80; }
+.button-outline:hover { background: #c9a96e20; border-color: var(--gold); }
 .text-link { display: inline-flex; align-items: center; gap: 18px; padding: 8px 0; border-bottom: 1px solid #20171360; font-size: 12px; font-weight: 500; }
 .text-link svg { transition: transform .25s; }
 .text-link:hover svg { transform: translate(3px,-3px); }
@@ -703,6 +705,24 @@ details[open] > summary > svg { transform: rotate(45deg); }
 @keyframes brand-drift { to { transform: translateX(-33.333333%); } }
 .scroll-image { position: relative; overflow: hidden; }
 .scroll-image-inner { position: absolute; inset: -12% 0; }
+.scroll-image,
+.work-image,
+.portrait,
+.gallery-photo,
+.salon-hero-photo,
+.salon-photo-frame,
+.team-hero-photo,
+.team-minimal-photo,
+.team-group-photo,
+.team-group-photo .fade-image-wrap,
+.quote-avatar,
+.services-photo,
+.team-story-photo,
+.welcome-picture,
+.team-wide-photo > div {
+  border-radius: var(--image-radius);
+  overflow: hidden;
+}
 .scroll-image-inner > img { object-fit: cover; }
 .team-minimal { padding-bottom: 90px; }
 .team-minimal .filter-row { padding-bottom: 25px; margin-bottom: 40px; border-bottom: 1px solid var(--rule); }
@@ -785,9 +805,21 @@ details[open] > summary > svg { transform: rotate(45deg); }
 .home-team-intro h3 + p { margin-top: 24px; }
 .home-team-intro .text-link { margin-top: 22px; }
 .team-preview .portrait img { object-position: center 30%; }
-.team-page-group { max-width: 720px; margin: 0 auto 65px; }
-.team-page-group img { width: 100%; height: auto; }
-.team-page-group figcaption { font-size: 11px; color: var(--ink-muted); margin-top: 14px; text-align: center; }
+.team-hero { padding-top: 94px; background: #19120f; color: var(--cream); }
+.team-hero-layout { display: grid; grid-template-columns: 0.92fr 1.18fr; gap: clamp(28px, 5vw, 72px); align-items: center; padding-block: 42px 56px; }
+.team-hero-copy { min-width: 0; position: relative; z-index: 1; padding-block: 12px; }
+.team-hero-copy .eyebrow { color: #e4cfa9; font-size: 10px; letter-spacing: .17em; margin-bottom: 26px; }
+.team-hero h1 { font-size: clamp(46px, 5.6vw, 82px); line-height: 1.08; letter-spacing: -.05em; }
+.team-hero h1 em { color: #e9d6b5; }
+.team-hero-intro { max-width: 440px; margin-block: 26px 30px; color: #ebe2d9; font-size: 14px; line-height: 1.85; }
+.team-hero-actions { display: flex; align-items: center; gap: 16px 24px; flex-wrap: wrap; }
+.team-hero .button { min-height: 56px; gap: 22px; }
+.team-hero-note { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 32px; padding-top: 22px; border-top: 1px solid #f5f0e833; color: #decfc1; font-size: 10px; letter-spacing: .04em; }
+.team-hero-visual { min-width: 0; }
+.team-hero-photo { position: relative; aspect-ratio: 1; overflow: hidden; background: #392e20; }
+.team-hero-photo .image-skeleton { background: #3a3228; }
+.team-hero-photo img { object-fit: cover; object-position: center 46%; }
+.team-minimal { padding-top: 72px; scroll-margin-top: 110px; }
 .team-minimal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 50px 30px; }
 .team-minimal-person { min-width: 0; display: flex; flex-direction: column; }
 .team-minimal-person h2 { overflow-wrap: anywhere; }
@@ -799,6 +831,7 @@ details[open] > summary > svg { transform: rotate(45deg); }
   .team-preview { --team-visible: 3; --team-gap: 22px; }
   .team-minimal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .salon-hero-layout { gap: 30px; }
+  .team-hero-layout { gap: 32px; }
 }
 @media (max-width: 760px) {
   .salon-hero { padding-top: 76px; }
@@ -817,12 +850,19 @@ details[open] > summary > svg { transform: rotate(45deg); }
   .home-team-intro p:not(.eyebrow) { font-size: 13px; }
   .team-preview { --team-visible: 2; --team-gap: 18px; }
   .team-preview h3 { font-size: 23px; }
-  .team-page-group { margin-bottom: 40px; }
+  .team-hero { padding-top: 76px; }
+  .team-hero-layout { grid-template-columns: 1fr; gap: 28px; padding-block: 36px 32px; }
+  .team-hero-copy { padding: 0; }
+  .team-hero-copy .eyebrow { font-size: 9px; margin-bottom: 20px; }
+  .team-hero h1 { font-size: clamp(42px, 10.4vw, 72px); }
+  .team-hero-intro { font-size: 13px; margin-block: 22px 24px; max-width: 540px; }
+  .team-hero-note { margin-top: 22px; padding-top: 17px; }
+  .team-minimal { padding-top: 48px; }
   .services-salon-photo { width: 100%; max-width: 420px; margin-top: 30px; }
 }
 @media (max-width: 600px) {
   .team-minimal-grid { grid-template-columns: 1fr; }
-  .salon-hero-actions { align-items: stretch; flex-direction: column; gap: 10px; }
+  .salon-hero-actions, .team-hero-actions { align-items: stretch; flex-direction: column; gap: 10px; }
   .salon-hero-secondary { align-self: flex-start; }
 }
 
