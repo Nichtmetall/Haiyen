@@ -276,7 +276,7 @@ button:focus-visible {
 }
 
 /* Haiyen — warm editorial typography, real people and deliberate motion. */
-:root { --espresso: #201713; --cream: #f5f0e8; --gold: #c9a96e; --ink-muted: #70635b; --rule: #20171326; }
+:root { --espresso: #201713; --cream: #f5f0e8; --gold: #c9a96e; --ink-muted: #70635b; --rule: #20171326; --image-radius: 14px; }
 body { font-size: 14px; }
 button, a, summary { -webkit-tap-highlight-color: transparent; }
 button, summary { cursor: pointer; }
@@ -699,6 +699,24 @@ details[open] > summary > svg { transform: rotate(45deg); }
 @keyframes brand-drift { to { transform: translateX(-33.333333%); } }
 .scroll-image { position: relative; overflow: hidden; }
 .scroll-image-inner { position: absolute; inset: -12% 0; }
+.scroll-image,
+.work-image,
+.portrait,
+.gallery-photo,
+.salon-hero-photo,
+.salon-photo-frame,
+.team-hero-photo,
+.team-minimal-photo,
+.team-group-photo,
+.team-group-photo .fade-image-wrap,
+.quote-avatar,
+.services-photo,
+.team-story-photo,
+.welcome-picture,
+.team-wide-photo > div {
+  border-radius: var(--image-radius);
+  overflow: hidden;
+}
 .scroll-image-inner > img { object-fit: cover; }
 .team-minimal { padding-bottom: 90px; }
 .team-minimal > .filter-row { padding-bottom: 25px; margin-bottom: 40px; border-bottom: 1px solid var(--rule); }
