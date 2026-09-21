@@ -3,7 +3,7 @@ import { TeamPageContent } from "@/components/site/team-page";
 
 export const metadata = pageMetadata(
   "Friseurteam in Dresden – unsere Stylisten",
-  "Lerne Hai Yen, Lisa, Anika, Lea-Sophie, Josi und Minh Anh kennen: dein Friseurteam bei Haiyen Hairdesign in Dresden-Striesen und Dresden-Neustadt.",
+  "Lernen Sie Hai Yen, Lisa, Anika, Lea-Sophie, Josi und Minh Anh kennen: Ihr Friseurteam bei Haiyen Hairdesign in Dresden-Striesen und Dresden-Neustadt.",
   "/team"
 );
 

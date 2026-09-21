@@ -5,7 +5,7 @@ import HomePage from "@/components/site/home-page";
 
 export const metadata = pageMetadata(
   "Friseur Dresden – Striesen & Neustadt",
-  "Dein Friseur in Dresden: Haarschnitte, Balayage, Coloration und Extensions bei Haiyen Hairdesign in Striesen & Neustadt. Jetzt Termin online buchen.",
+  "Ihr Friseur in Dresden: Haarschnitte, Balayage, Coloration und Extensions bei Haiyen Hairdesign in Striesen & Neustadt. Jetzt Termin online buchen.",
   "/"
 );
 

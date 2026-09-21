@@ -90,7 +90,7 @@ export function GalleryLightbox({ items, initialIndex, onClose }: { items: Galle
           {loading && <span role="status" className="lightbox-loading"><LoaderCircle size={18} />Bild wird geladen …</span>}
         </div>
         <div className="lightbox-caption" aria-live="polite"><p>{image.caption}<span>von {image.stylistName}</span></p><span>{index + 1} / {items.length}</span></div>
-        {error && <p className="lightbox-error" role="alert">Das Bild konnte nicht geladen werden. Bitte versuche es erneut.</p>}
+        {error && <p className="lightbox-error" role="alert">Das Bild konnte nicht geladen werden. Bitte versuchen Sie es erneut.</p>}
       </div>
       {items.length > 1 && <><button className="lightbox-prev" onClick={() => void change(-1)} aria-label="Vorheriges Bild"><ChevronLeft /></button><button className="lightbox-next" onClick={() => void change(1)} aria-label="Nächstes Bild"><ChevronRight /></button></>}
     </dialog>

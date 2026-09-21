@@ -56,19 +56,19 @@ export const SERVICES: ServiceItem[] = [
 export const FAQS = [
   {
     q: "Wie buche ich meinen Termin?",
-    a: "Online über unsere Website, telefonisch oder per WhatsApp. Wähle deinen Salon in Striesen oder der Neustadt und die gewünschte Leistung.",
+    a: "Online über unsere Website, telefonisch oder per WhatsApp. Wählen Sie Ihren Salon in Striesen oder der Neustadt und die gewünschte Leistung.",
   },
   {
     q: "Welche Leistung soll ich buchen?",
-    a: "Wähle die Leistung passend zu deinem Haarwunsch. Bei deinem ersten Besuch, einer größeren Veränderung oder Unsicherheit beraten wir dich vorab telefonisch.",
+    a: "Wählen Sie die Leistung passend zu Ihrem Haarwunsch. Bei Ihrem ersten Besuch, einer größeren Veränderung oder Unsicherheit beraten wir Sie vorab telefonisch.",
   },
   {
     q: "Wie lange dauert eine Balayage?",
-    a: "Plane 3–5 Stunden ein. Die genaue Dauer hängt von Haarlänge, Haardichte, Ausgangsfarbe und deinem Wunschergebnis ab.",
+    a: "Planen Sie 3–5 Stunden ein. Die genaue Dauer hängt von Haarlänge, Haardichte, Ausgangsfarbe und Ihrem Wunschergebnis ab.",
   },
   {
     q: "Ist eine Anzahlung erforderlich?",
-    a: "Ja, bei größeren Dienstleistungen ist eine Anzahlung erforderlich. Die Höhe und Zahlungsdetails teilen wir dir bei der Terminvereinbarung mit.",
+    a: "Ja, bei größeren Dienstleistungen ist eine Anzahlung erforderlich. Die Höhe und Zahlungsdetails teilen wir Ihnen bei der Terminvereinbarung mit.",
   },
   {
     q: "Gibt es Kinderhaarschnitte oder Kinderpreise?",
@@ -76,11 +76,11 @@ export const FAQS = [
   },
   {
     q: "Wie kann ich meinen Termin ändern oder absagen?",
-    a: "Bitte melde dich möglichst frühzeitig telefonisch in deinem Salon. So können wir deinen Termin gemeinsam verschieben oder absagen.",
+    a: "Bitte melden Sie sich möglichst frühzeitig telefonisch in Ihrem Salon. So können wir Ihren Termin gemeinsam verschieben oder absagen.",
   },
   {
     q: "Warum kann der Preis variieren?",
-    a: "Haarlänge, Material und Zeitaufwand bestimmen den Preis. Den verbindlichen Preis stimmen wir vor der Behandlung mit dir ab.",
+    a: "Haarlänge, Material und Zeitaufwand bestimmen den Preis. Den verbindlichen Preis stimmen wir vor der Behandlung mit Ihnen ab.",
   },
   {
     q: "Was unterscheidet Strähnen von Balayage?",
@@ -88,11 +88,11 @@ export const FAQS = [
   },
   {
     q: "Ansatzfarbe oder Komplettfarbe – was passt zu mir?",
-    a: "Eine Ansatzfarbe frischt den nachgewachsenen Bereich auf. Eine Komplettfarbe bezieht auch Längen und Spitzen ein. Wir beraten dich zur passenden Variante.",
+    a: "Eine Ansatzfarbe frischt den nachgewachsenen Bereich auf. Eine Komplettfarbe bezieht auch Längen und Spitzen ein. Wir beraten Sie zur passenden Variante.",
   },
   {
     q: "Kann ich in einem Termin deutlich heller werden?",
-    a: "Das hängt von deiner Ausgangsfarbe und Haarstruktur ab. Für ein schonendes Ergebnis können mehrere Termine nötig sein. Wir besprechen mit dir, was möglich ist.",
+    a: "Das hängt von Ihrer Ausgangsfarbe und Haarstruktur ab. Für ein schonendes Ergebnis können mehrere Termine nötig sein. Wir besprechen mit Ihnen, was möglich ist.",
   },
 ];
 
@@ -185,7 +185,7 @@ export const TEAM: TeamMember[] = [
     slug: "josi",
     location: "Dresden Striesen",
     skills: ["Cuts", "Styling", "Pflege-Rituale"],
-    quote: "Der beste Look ist der, den du morgens in fünf Minuten selbst hinbekommst.",
+    quote: "Der beste Look ist der, den Sie morgens in fünf Minuten selbst hinbekommen.",
   },
   {
     name: "Minh Anh",

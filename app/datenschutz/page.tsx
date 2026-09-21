@@ -10,9 +10,9 @@ export const metadata = pageMetadata(
 export default function DatenschutzPage() {
   return (
     <LegalPage
-      eyebrow="Deine Daten"
+      eyebrow="Ihre Daten"
       title="Datenschutz"
-      intro="Hier erfährst du transparent, welche Daten beim Besuch dieser Website verarbeitet werden und welche Wahlmöglichkeiten du hast."
+      intro="Hier erfahren Sie transparent, welche Daten beim Besuch dieser Website verarbeitet werden und welche Wahlmöglichkeiten Sie haben."
       updatedAt="August 2026"
       highlights={[
         {
@@ -21,10 +21,10 @@ export default function DatenschutzPage() {
         },
         {
           label: "Externe Inhalte",
-          value: "Karten und Terminbuchung laden erst nach deiner Einwilligung.",
+          value: "Karten und Terminbuchung laden erst nach Ihrer Einwilligung.",
         },
         {
-          label: "Deine Kontrolle",
+          label: "Ihre Kontrolle",
           value: "Die Auswahl lässt sich jederzeit über den Footer ändern.",
         },
       ]}
@@ -72,13 +72,13 @@ export default function DatenschutzPage() {
           content: (
             <>
               <p>
-                Wir speichern deine Auswahl zu externen Medien ausschließlich im lokalen Speicher deines Browsers. Die
+                Wir speichern Ihre Auswahl zu externen Medien ausschließlich im lokalen Speicher Ihres Browsers. Die
                 Einstellung enthält die gewählte Kategorie, eine Versionsnummer und den Zeitpunkt der Auswahl. Sie wird
-                nicht an unseren Server übertragen. Diese Speicherung ist erforderlich, um deine Datenschutzentscheidung zu
+                nicht an unseren Server übertragen. Diese Speicherung ist erforderlich, um Ihre Datenschutzentscheidung zu
                 beachten (§ 25 Abs. 2 Nr. 2 TDDDG).
               </p>
               <p>
-                Du kannst deine Auswahl jederzeit über „Cookie-Einstellungen“ im Footer ändern oder widerrufen. Bei einem
+                Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Footer ändern oder widerrufen. Bei einem
                 Widerruf werden bereits geladene externe Inhalte entfernt; die Rechtmäßigkeit der Verarbeitung bis zum
                 Widerruf bleibt unberührt.
               </p>
@@ -92,15 +92,15 @@ export default function DatenschutzPage() {
             <>
               <p>
                 Auf der Startseite können Karten von Google Maps geladen werden. Anbieter ist Google Ireland Limited,
-                Gordon House, Barrow Street, Dublin 4, Irland. Die Karten werden standardmäßig blockiert. Erst wenn du
-                „Externe Medien“ erlaubst oder eine Karte aktiv lädst, wird eine Verbindung zu Google hergestellt. Dabei
-                können insbesondere deine IP-Adresse, Geräte- und Browserinformationen sowie Nutzungsdaten verarbeitet
+                Gordon House, Barrow Street, Dublin 4, Irland. Die Karten werden standardmäßig blockiert. Erst wenn Sie
+                „Externe Medien“ erlauben oder eine Karte aktiv laden, wird eine Verbindung zu Google hergestellt. Dabei
+                können insbesondere Ihre IP-Adresse, Geräte- und Browserinformationen sowie Nutzungsdaten verarbeitet
                 werden. Eine Übermittlung an verbundene Unternehmen in Drittländern, insbesondere in die USA, kann nicht
                 ausgeschlossen werden.
               </p>
               <p>
-                Rechtsgrundlagen sind deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Weitere
-                Informationen findest du in der{" "}
+                Rechtsgrundlagen sind Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Weitere
+                Informationen finden Sie in der{" "}
                 <a href="https://policies.google.com/privacy?hl=de" rel="noreferrer" target="_blank">
                   Datenschutzerklärung von Google
                 </a>
@@ -117,19 +117,19 @@ export default function DatenschutzPage() {
               <p>
                 Auf der Buchungsseite binden wir das Buchungssystem von Planity (Planity SAS, 9 Rue des Colonnes, 75002
                 Paris, Frankreich) in einem eingebetteten Fenster (iFrame) ein. Die Einbindung ist standardmäßig blockiert
-                und wird erst geladen, nachdem du der Kategorie „Externe Medien“ zugestimmt oder die Buchung aktiv
-                gestartet hast.
+                und wird erst geladen, nachdem Sie der Kategorie „Externe Medien“ zugestimmt oder die Buchung aktiv
+                gestartet haben.
               </p>
               <p>
                 Beim Laden wird eine Verbindung zu Servern von Planity und den dort eingesetzten Dienstleistern
-                hergestellt. Dabei können insbesondere deine IP-Adresse, Geräte- und Browserinformationen sowie
+                hergestellt. Dabei können insbesondere Ihre IP-Adresse, Geräte- und Browserinformationen sowie
                 Nutzungsdaten verarbeitet werden. Die für Auswahl und Buchung eines Termins eingegebenen Daten verarbeitet
-                Planity in eigener Verantwortung. Vor deiner Zustimmung übertragen wir keine Daten an Planity.
+                Planity in eigener Verantwortung. Vor Ihrer Zustimmung übertragen wir keine Daten an Planity.
               </p>
               <p>
-                Rechtsgrundlagen sind deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG sowie – für
+                Rechtsgrundlagen sind Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG sowie – für
                 die anschließende Terminabwicklung – Art. 6 Abs. 1 lit. b DSGVO. Informationen zur Verarbeitung bei der
-                Buchung findest du in den Datenschutzhinweisen, die Planity auf der Buchungsseite bereitstellt.
+                Buchung finden Sie in den Datenschutzhinweisen, die Planity auf der Buchungsseite bereitstellt.
               </p>
             </>
           ),
@@ -140,9 +140,9 @@ export default function DatenschutzPage() {
           content: (
             <>
               <p>
-                Wenn du uns kontaktierst, verarbeiten wir deine Angaben zur Bearbeitung deiner Anfrage. Das Formular auf
+                Wenn Sie uns kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Das Formular auf
                 dieser Website speichert oder versendet keine Daten über unseren Server, sondern bereitet eine E-Mail in
-                deinem E-Mail-Programm vor. Bei einer Kontaktaufnahme über WhatsApp gelten zusätzlich die
+                Ihrem E-Mail-Programm vor. Bei einer Kontaktaufnahme über WhatsApp gelten zusätzlich die
                 Datenschutzbestimmungen des jeweiligen Anbieters.
               </p>
               <p>
@@ -155,12 +155,12 @@ export default function DatenschutzPage() {
         },
         {
           id: "rechte",
-          title: "Deine Rechte",
+          title: "Ihre Rechte",
           content: (
             <>
-              <p>Du hast nach Maßgabe der gesetzlichen Voraussetzungen insbesondere folgende Rechte:</p>
+              <p>Sie haben nach Maßgabe der gesetzlichen Voraussetzungen insbesondere folgende Rechte:</p>
               <ul>
-                <li>Auskunft über deine verarbeiteten personenbezogenen Daten (Art. 15 DSGVO)</li>
+                <li>Auskunft über Ihre verarbeiteten personenbezogenen Daten (Art. 15 DSGVO)</li>
                 <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
                 <li>Löschung oder Einschränkung der Verarbeitung (Art. 17 und 18 DSGVO)</li>
                 <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
@@ -175,7 +175,7 @@ export default function DatenschutzPage() {
           title: "Beschwerderecht",
           content: (
             <p>
-              Du hast das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren. Für unseren Sitz ist
+              Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Für unseren Sitz ist
               insbesondere der Sächsische Datenschutz- und Transparenzbeauftragte zuständig: Devrientstraße 5, 01067
               Dresden, E-Mail: <a href="mailto:saechsdsb@slt.sachsen.de">saechsdsb@slt.sachsen.de</a>.
             </p>

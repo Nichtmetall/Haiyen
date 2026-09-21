@@ -118,7 +118,7 @@ export function LegalPage({
             <div>
               <h2 className="font-serif text-xl font-semibold md:text-2xl">Noch Fragen offen?</h2>
               <p className="mt-2 text-sm leading-relaxed text-[#201713]/65">
-                Schreib uns einfach – wir antworten dir persönlich.
+                Schreiben Sie uns einfach – wir antworten Ihnen persönlich.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

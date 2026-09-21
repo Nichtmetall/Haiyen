@@ -28,7 +28,7 @@ export const HomePageContent = () => (
           <p className="eyebrow">Ein kleiner Einblick. Ein gutes Gefühl.</p>
         </FadeIn>
         <FadeIn delay={0.14}>
-          <h2 id="salon-title">Dein Lieblingslook<br />beginnt mit <em>Wohlfühlen.</em></h2>
+          <h2 id="salon-title">Ihr Lieblingslook<br />beginnt mit <em>Wohlfühlen.</em></h2>
         </FadeIn>
         <FadeIn delay={0.22}>
           <p>Seit 2016 ist haiyen Hairdesign Ihre Adresse für Styling und Wellness in Dresden-Striesen &amp; Neustadt.</p>
@@ -54,11 +54,11 @@ export const HomePageContent = () => (
     <section className="section-shell selected-work section-dark">
       <FadeIn className="section-heading">
         <div>
-          <p className="eyebrow">Von unseren Händen. Für deinen Alltag.</p>
-          <h2>So vielfältig<br />wie <em>du.</em></h2>
+          <p className="eyebrow">Von unseren Händen. Für Ihren Alltag.</p>
+          <h2>So vielfältig<br />wie <em>Sie.</em></h2>
         </div>
         <div className="section-aside">
-          <p>Weiche Übergänge, lebendige Farben und ein Schnitt, der zu dir gehört. Ein kleiner Einblick in unsere Arbeit.</p>
+          <p>Weiche Übergänge, lebendige Farben und ein Schnitt, der zu Ihnen gehört. Ein kleiner Einblick in unsere Arbeit.</p>
           <Link className="text-link" href="/galerie">Alle Arbeiten entdecken <ArrowUpRight size={17} /></Link>
         </div>
       </FadeIn>
@@ -83,23 +83,23 @@ export const HomePageContent = () => (
     <section className="section-shell home-team section-dark" id="team">
       <FadeIn className="section-heading">
         <div>
-          <p className="eyebrow">Persönlich für dich da</p>
-          <h2>Dein <em>Team.</em></h2>
+          <p className="eyebrow">Persönlich für Sie da</p>
+          <h2>Ihr <em>Team.</em></h2>
         </div>
-        <Link className="text-link" href="/team">Lerne unser Team kennen <ArrowUpRight size={17} /></Link>
+        <Link className="text-link" href="/team">Lernen Sie unser Team kennen <ArrowUpRight size={17} /></Link>
       </FadeIn>
       <div className="home-team-intro">
         <FadeIn delay={0.1} className="team-group-photo">
           <FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={1800} height={1800} sizes="(max-width: 760px) 88vw, 44vw" />
         </FadeIn>
         <FadeIn delay={0.22}>
-          <h3>Sechs Persönlichkeiten.<br />Eine Leidenschaft.<br />Dein <em>Stil.</em></h3>
+          <h3>Sechs Persönlichkeiten.<br />Eine Leidenschaft.<br />Ihr <em>Stil.</em></h3>
           <p>Gute Haare sind mehr als ein Look. Sie sind ein Gefühl.</p>
-          <p>Hinter jedem Haarschnitt, jeder Farbe und jedem Styling stehen Menschen mit Leidenschaft, Persönlichkeit und dem Anspruch, das Beste aus deinem Haar herauszuholen.</p>
+          <p>Hinter jedem Haarschnitt, jeder Farbe und jedem Styling stehen Menschen mit Leidenschaft, Persönlichkeit und dem Anspruch, das Beste aus Ihrem Haar herauszuholen.</p>
           <p>Ich bin Hai Yen – gemeinsam mit Lisa, Anika, Josi, Lea-Sophie und Minh Anh bilden wir ein Team, das unterschiedlicher nicht sein könnte und gerade deshalb so besonders ist.</p>
           <p>Von der Masterstylistin bis zur Junior Stylistin bringt jede von uns ihren eigenen Stil, ihre individuellen Stärken und ganz viel Herzblut mit.</p>
-          <p>Was uns verbindet, ist die Liebe zu unserem Handwerk und der Wunsch, dir nicht nur schöne Haare, sondern ein rundum gutes Gefühl zu schenken.</p>
-          <p>Wir nehmen uns Zeit für dich, hören dir zu und kreieren gemeinsam deinen ganz persönlichen Lieblingslook.</p>
+          <p>Was uns verbindet, ist die Liebe zu unserem Handwerk und der Wunsch, Ihnen nicht nur schöne Haare, sondern ein rundum gutes Gefühl zu schenken.</p>
+          <p>Wir nehmen uns Zeit für Sie, hören Ihnen zu und kreieren gemeinsam Ihren ganz persönlichen Lieblingslook.</p>
           <Link className="text-link" href="/team">Das Team kennenlernen <ArrowUpRight size={17} /></Link>
         </FadeIn>
       </div>
@@ -110,7 +110,7 @@ export const HomePageContent = () => (
     <section className="reviews-section">
       <div className="section-shell">
         <FadeIn delay={0.05}><p className="eyebrow">Worte, die bei uns bleiben</p></FadeIn>
-        <FadeIn delay={0.14}><h2>Das schönste Kompliment?<br /><em>Wenn du wiederkommst.</em></h2></FadeIn>
+        <FadeIn delay={0.14}><h2>Das schönste Kompliment?<br /><em>Wenn Sie wiederkommen.</em></h2></FadeIn>
         <FadeIn delay={0.26}><ReviewCarousel /></FadeIn>
       </div>
     </section>
@@ -118,9 +118,9 @@ export const HomePageContent = () => (
       <FadeIn className="section-heading">
         <div>
           <p className="eyebrow">Zweimal Dresden. Ein vertrautes Gefühl.</p>
-          <h2>Wir freuen uns<br /><em>auf dich.</em></h2>
+          <h2>Wir freuen uns<br /><em>auf Sie.</em></h2>
         </div>
-        <p className="section-aside">Dein nächster Besuch beginnt hier.<br />Wähle deinen Salon und finde deinen Wunschtermin.</p>
+        <p className="section-aside">Ihr nächster Besuch beginnt hier.<br />Wählen Sie Ihren Salon und finden Sie Ihren Wunschtermin.</p>
       </FadeIn>
       <div className="locations-grid">
         {Object.entries(LOCATIONS).map(([key, loc], i) => (
@@ -150,7 +150,7 @@ export const HomePageContent = () => (
     <section className="section-shell faq-section">
       <FadeIn delay={0.05}>
         <div>
-          <p className="eyebrow">Vor deinem Besuch</p>
+          <p className="eyebrow">Vor Ihrem Besuch</p>
           <h2>Noch eine<br /><em>Frage?</em></h2>
         </div>
       </FadeIn>

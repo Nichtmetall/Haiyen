@@ -119,12 +119,12 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
               </div>
               <div>
                 <h2 id="consent-title" className="font-serif text-xl font-semibold md:text-2xl">
-                  Deine Privatsphäre, deine Wahl
+                  Ihre Privatsphäre, Ihre Wahl
                 </h2>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#F5F0E8]/75">
                   Wir verwenden nur technisch notwendige Speicherung. Google Maps und die
-                  Online-Terminbuchung von Planity werden erst geladen, wenn du externe Medien erlaubst.
-                  Deine Auswahl kannst du jederzeit im Footer ändern.
+                  Online-Terminbuchung von Planity werden erst geladen, wenn Sie externe Medien erlauben.
+                  Ihre Auswahl können Sie jederzeit im Footer ändern.
                 </p>
                 <div className="mt-3 flex gap-4 text-xs font-semibold text-[#C9A96E]">
                   <Link className="underline-offset-4 hover:underline" href="/datenschutz">
@@ -196,7 +196,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
 
             <p className="mt-4 text-sm leading-relaxed text-[#201713]/70">
               Notwendige Funktionen sind immer aktiv. Externe Inhalte können Daten an Drittanbieter
-              übertragen und werden deshalb nur mit deiner Einwilligung geladen.
+              übertragen und werden deshalb nur mit Ihrer Einwilligung geladen.
             </p>
 
             <div className="mt-7 space-y-3">
@@ -206,7 +206,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
                   <div>
                     <h3 className="font-semibold">Technisch notwendig</h3>
                     <p className="mt-1 text-sm leading-relaxed text-[#201713]/65">
-                      Speichert ausschließlich deine Datenschutzauswahl lokal auf diesem Gerät.
+                      Speichert ausschließlich Ihre Datenschutzauswahl lokal auf diesem Gerät.
                     </p>
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export function ConsentEmbed({
   actionLabel = "Google Maps erlauben",
   allow,
   className = "",
-  description = "Mit dem Laden stimmst du der Übertragung von Daten an Google Maps zu.",
+  description = "Mit dem Laden stimmen Sie der Übertragung von Daten an Google Maps zu.",
   fallbackHref,
   fallbackLabel = "In neuem Tab öffnen",
   heading = "Karte anzeigen",

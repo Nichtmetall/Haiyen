@@ -17,13 +17,13 @@ export const TeamPageContent = () => {
         <div className="team-hero-layout section-shell">
           <div className="team-hero-copy">
             <FadeIn delay={0.05}>
-              <p className="eyebrow light">Persönlich für dich da</p>
+              <p className="eyebrow light">Persönlich für Sie da</p>
             </FadeIn>
             <FadeIn delay={0.16}>
-              <h1 id="team-title">Dein Haar.<br /><em>Unser Team.</em></h1>
+              <h1 id="team-title">Ihr Haar.<br /><em>Unser Team.</em></h1>
             </FadeIn>
             <FadeIn delay={0.28}>
-              <p className="team-hero-intro">Hai Yen, Lisa, Anika, Lea-Sophie, Josi und Minh Anh. Sechs Persönlichkeiten für deinen Lieblingslook – in unseren Friseursalons in Dresden-Striesen und Dresden-Neustadt.</p>
+              <p className="team-hero-intro">Hai Yen, Lisa, Anika, Lea-Sophie, Josi und Minh Anh. Sechs Persönlichkeiten für Ihren Lieblingslook – in unseren Friseursalons in Dresden-Striesen und Dresden-Neustadt.</p>
             </FadeIn>
             <FadeIn delay={0.4}>
               <div className="team-hero-actions">

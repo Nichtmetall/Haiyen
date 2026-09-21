@@ -10,9 +10,9 @@ export const ServicesSection = () => (
   <section id="leistungen" className="services-section">
     <div className="section-shell services-layout">
       <FadeIn className="services-intro">
-        <p className="eyebrow">Was wir für dich tun</p>
-        <h2>Dein Stil.<br /><em>Unser Handwerk.</em></h2>
-        <p>Den Lieblingsschnitt auffrischen oder etwas Neues wagen. Wir finden gemeinsam heraus, was zu dir passt.</p>
+        <p className="eyebrow">Was wir für Sie tun</p>
+        <h2>Ihr Stil.<br /><em>Unser Handwerk.</em></h2>
+        <p>Den Lieblingsschnitt auffrischen oder etwas Neues wagen. Wir finden gemeinsam heraus, was zu Ihnen passt.</p>
         <SalonPhoto slot="detail" className="services-salon-photo" />
       </FadeIn>
       <div className="service-list">
@@ -35,10 +35,10 @@ export const ServicesSection = () => (
           ))}
         </div>
         <FadeIn delay={0.28}>
-          <p className="price-note">Die Preise können je nach Haarlänge, Materialeinsatz und Aufwand variieren. Den verbindlichen Preis stimmen wir vor der Behandlung mit dir ab.</p>
+          <p className="price-note">Die Preise können je nach Haarlänge, Materialeinsatz und Aufwand variieren. Den verbindlichen Preis stimmen wir vor der Behandlung mit Ihnen ab.</p>
         </FadeIn>
         <FadeIn delay={0.36}>
-          <Link href="/booking" className="button button-primary">Deinen Besuch planen <ArrowUpRight size={17} /></Link>
+          <Link href="/booking" className="button button-primary">Ihren Besuch planen <ArrowUpRight size={17} /></Link>
         </FadeIn>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { GaleriePageContent } from "@/components/site/galerie-page";
 
 export const metadata = pageMetadata(
   "Balayage, Haarschnitte & Extensions in Dresden",
-  "Entdecke Haarschnitte, Colorationen, Balayage und Extensions unseres Dresdner Friseurteams. Echte Arbeiten aus den Haiyen Hairdesign Salons.",
+  "Entdecken Sie Haarschnitte, Colorationen, Balayage und Extensions unseres Dresdner Friseurteams. Echte Arbeiten aus den Haiyen Hairdesign Salons.",
   "/galerie"
 );
 

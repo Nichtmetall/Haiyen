@@ -25,7 +25,7 @@ function Gallery() {
         <FadeIn delay={0.05}><p className="eyebrow">Einblicke in unsere Arbeit</p></FadeIn>
         <FadeIn delay={0.16}><h1>Echte Looks.<br /><em>Echte Persönlichkeiten.</em></h1></FadeIn>
         <FadeIn delay={0.28}>
-          <p>Vom vertrauten Lieblingslook bis zur neuen Farbe. Entdecke, was in unseren Salons entsteht – und finde Inspiration für deinen nächsten Besuch.</p>
+          <p>Vom vertrauten Lieblingslook bis zur neuen Farbe. Entdecken Sie, was in unseren Salons entsteht – und finden Sie Inspiration für Ihren nächsten Besuch.</p>
         </FadeIn>
       </header>
       <FadeIn delay={0.12}>
@@ -55,15 +55,15 @@ function Gallery() {
         <FadeIn>
           <div className="gallery-empty">
             <h2>Weitere Looks folgen.</h2>
-            <p>Von {TEAM.find(member => member.slug === active)?.name ?? "unserem Team"} sind aktuell noch keine Arbeiten in der Galerie. Lerne uns persönlich im Salon kennen.</p>
+            <p>Von {TEAM.find(member => member.slug === active)?.name ?? "unserem Team"} sind aktuell noch keine Arbeiten in der Galerie. Lernen Sie uns persönlich im Salon kennen.</p>
             <Link href="/booking" className="text-link">Termin finden <ArrowUpRight size={17} /></Link>
           </div>
         </FadeIn>
       )}
       <FadeIn delay={0.1}>
         <div className="gallery-end">
-          <p>Deinen nächsten Lieblingslook schon im Kopf?</p>
-          <Link href="/booking" className="button button-primary">Wir freuen uns auf dich <ArrowUpRight size={17} /></Link>
+          <p>Ihren nächsten Lieblingslook schon im Kopf?</p>
+          <Link href="/booking" className="button button-primary">Wir freuen uns auf Sie <ArrowUpRight size={17} /></Link>
         </div>
       </FadeIn>
       {selected !== null && items[selected] && <GalleryLightbox key={active} items={items} initialIndex={selected} onClose={() => setSelected(null)} />}

@@ -13,10 +13,10 @@ export const HeroParallax = () => (
           <p className="eyebrow light">Haiyen Hairdesign · Striesen & Neustadt</p>
         </FadeIn>
         <FadeIn delay={0.18}>
-          <h1 id="hero-title">Dein Friseur<br />in Dresden.<br /><em>Dein Moment.</em></h1>
+          <h1 id="hero-title">Ihr Friseur<br />in Dresden.<br /><em>Ihr Moment.</em></h1>
         </FadeIn>
         <FadeIn delay={0.32}>
-          <p className="salon-hero-intro">Ein Schnitt, der zu dir passt. Eine Farbe, die dich strahlen lässt. Entdecke Haarschnitte, Balayage und Extensions mit persönlicher Beratung in unseren zwei Dresdner Salons.</p>
+          <p className="salon-hero-intro">Ein Schnitt, der zu Ihnen passt. Eine Farbe, die Sie strahlen lässt. Entdecken Sie Haarschnitte, Balayage und Extensions mit persönlicher Beratung in unseren zwei Dresdner Salons.</p>
         </FadeIn>
         <FadeIn delay={0.46}>
           <div className="salon-hero-actions">
@@ -25,13 +25,13 @@ export const HeroParallax = () => (
           </div>
         </FadeIn>
         <FadeIn delay={0.6}>
-          <div className="salon-hero-note"><span>Zwei Salons in Dresden</span><span>Online deinen Wunschtermin finden</span></div>
+          <div className="salon-hero-note"><span>Zwei Salons in Dresden</span><span>Online Ihren Wunschtermin finden</span></div>
         </FadeIn>
       </div>
       <FadeIn delay={0.28} className="salon-hero-visual">
         <figure data-parallax>
           <ScrollImage strength={4} className="salon-hero-photo"><FadeImage src={SALON_IMAGES.hero.src} alt={SALON_IMAGES.hero.alt} fill preload sizes="(max-width: 760px) 88vw, (max-width: 1455px) 40vw, 580px" style={{ objectPosition: SALON_IMAGES.hero.position }} /></ScrollImage>
-          <figcaption><span>Ankommen. Wohlfühlen. Du sein.</span><a href="#salon">Ein Blick in den Salon <ArrowUpRight size={16} aria-hidden="true" /></a></figcaption>
+          <figcaption><span>Ankommen. Wohlfühlen. Sie sein.</span><a href="#salon">Ein Blick in den Salon <ArrowUpRight size={16} aria-hidden="true" /></a></figcaption>
         </figure>
       </FadeIn>
     </div>

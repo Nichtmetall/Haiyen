@@ -4,7 +4,7 @@ import { BookingPageContent } from "@/components/site/booking-page";
 
 export const metadata = pageMetadata(
   "Friseurtermin in Dresden online buchen",
-  "Buche deinen Friseurtermin bei Haiyen Hairdesign in Dresden-Striesen oder Dresden-Neustadt. Wähle deinen Salon und finde online deinen Wunschtermin.",
+  "Buchen Sie Ihren Friseurtermin bei Haiyen Hairdesign in Dresden-Striesen oder Dresden-Neustadt. Wählen Sie Ihren Salon und finden Sie online Ihren Wunschtermin.",
   "/booking"
 );
 
