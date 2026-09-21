@@ -18,16 +18,9 @@ export const TeamPageContent = () => {
             <p className="eyebrow light">Persönlich für dich da</p>
             <h1 id="team-title">Dein Haar.<br /><em>Unser Team.</em></h1>
             <p className="team-hero-intro">Hai Yen, Lisa, Anika, Lea-Sophie, Josi und Minh Anh. Sechs Persönlichkeiten für deinen Lieblingslook – in unseren Friseursalons in Dresden-Striesen und Dresden-Neustadt.</p>
-            <ul className="team-hero-names" aria-label="Zum Profil springen">
-              {TEAM.map(member => (
-                <li key={member.slug}>
-                  <a href={`#${member.slug}`}>{member.name}</a>
-                </li>
-              ))}
-            </ul>
             <div className="team-hero-actions">
               <Link className="button button-gold" href="/booking">Termin online buchen <ArrowUpRight size={18} aria-hidden="true" /></Link>
-              <a className="salon-hero-secondary" href="#team-profiles">Die Stylistinnen kennenlernen <ArrowUpRight size={16} aria-hidden="true" /></a>
+              <a className="button button-outline" href="#team-profiles">Die Stylistinnen kennenlernen <ArrowUpRight size={18} aria-hidden="true" /></a>
             </div>
             <div className="team-hero-note">
               <span>Sechs Persönlichkeiten</span>
@@ -35,21 +28,15 @@ export const TeamPageContent = () => {
             </div>
           </div>
           <figure data-parallax className="team-hero-visual">
-            <div className="team-hero-frame">
-              <ScrollImage strength={5} className="team-hero-photo">
-                <FadeImage
-                  src={TEAM_IMAGE.src}
-                  alt={TEAM_IMAGE.alt}
-                  fill
-                  preload
-                  sizes="(max-width: 760px) 88vw, (max-width: 1455px) 50vw, 680px"
-                />
-              </ScrollImage>
-            </div>
-            <figcaption>
-              <span>Haiyen Hairdesign</span>
-              <span>Dein Friseurteam in Dresden</span>
-            </figcaption>
+            <ScrollImage strength={5} className="team-hero-photo">
+              <FadeImage
+                src={TEAM_IMAGE.src}
+                alt={TEAM_IMAGE.alt}
+                fill
+                preload
+                sizes="(max-width: 760px) 88vw, (max-width: 1455px) 50vw, 680px"
+              />
+            </ScrollImage>
           </figure>
         </div>
       </section>
