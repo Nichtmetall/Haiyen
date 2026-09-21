@@ -22,7 +22,15 @@ export const HomePageContent = () => (
     <Marquee />
     <CinematicScene />
     <section id="salon" className="section-shell salon-story" aria-labelledby="salon-title">
-      <div className="salon-story-copy"><p className="eyebrow">Ein kleiner Einblick. Ein gutes Gefühl.</p><h2 id="salon-title">Dein Lieblingslook<br />beginnt mit <em>Wohlfühlen.</em></h2><p>Warme Farben, sanftes Licht und Zeit für dich. Bei Haiyen Hairdesign verbinden wir persönliche Beratung mit Friseurhandwerk – mitten in Dresden, Sachsen.</p><p>Ob neuer Haarschnitt, natürliche Balayage oder mehr Fülle durch Extensions: In Striesen und der Neustadt finden wir gemeinsam den Look, der zu deinem Alltag passt.</p><a className="text-link" href="#standorte">Unsere Salons in Dresden <ArrowUpRight size={17} /></a></div>
+      <div className="salon-story-copy">
+        <p className="eyebrow">Ein kleiner Einblick. Ein gutes Gefühl.</p>
+        <h2 id="salon-title">Dein Lieblingslook<br />beginnt mit <em>Wohlfühlen.</em></h2>
+        <p>Seit 2016 ist haiyen Hairdesign Ihre Adresse für Styling und Wellness in Dresden-Striesen &amp; Neustadt.</p>
+        <p>Gegründet von der Friseurmeisterin Hai Yen, verbinden wir erstklassigen Service mit ausgezeichnetem handwerklichem Können.</p>
+        <p>In exquisiter Atmosphäre holen wir das Beste aus Ihnen heraus – für ein Ergebnis, mit dem Sie sich rundum wohlfühlen.</p>
+        <p>Für höchste Qualität setzen wir auf Profi-Produkte von Redken, L’Oreal, Great Lengths, Olaplex und Hairtalk.</p>
+        <a className="text-link" href="#standorte">Unsere Salons in Dresden <ArrowUpRight size={17} /></a>
+      </div>
       <div className="salon-story-images"><SalonPhoto slot="styling" className="salon-story-styling" /><SalonPhoto slot="care" className="salon-story-care" /></div>
     </section>
     <section className="section-shell selected-work section-dark">
@@ -32,7 +40,19 @@ export const HomePageContent = () => (
     <ServicesSection />
     <section className="section-shell home-team section-dark" id="team">
       <FadeUp className="section-heading"><div><p className="eyebrow">Persönlich für dich da</p><h2>Dein <em>Team.</em></h2></div><Link className="text-link" href="/team">Lerne unser Team kennen <ArrowUpRight size={17} /></Link></FadeUp>
-      <div className="home-team-intro"><div className="team-group-photo"><FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={1800} height={1800} sizes="(max-width: 760px) 88vw, 44vw" /></div><div><p className="eyebrow">Sechs Persönlichkeiten. Dein Stil.</p><h3>Gute Haare beginnen<br />mit <em>guten Händen.</em></h3><p>Hai Yen, Lisa, Anika, Josi, Lea-Sophie und Minh Anh: Lerne die Menschen hinter deinem nächsten Lieblingslook kennen. Von Masterstylist bis Junior Stylist – wir freuen uns auf dich.</p><Link className="text-link" href="/team">Das Team kennenlernen <ArrowUpRight size={17} /></Link></div></div>
+      <div className="home-team-intro">
+        <div className="team-group-photo"><FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={1800} height={1800} sizes="(max-width: 760px) 88vw, 44vw" /></div>
+        <div>
+          <h3>Sechs Persönlichkeiten.<br />Eine Leidenschaft.<br />Dein <em>Stil.</em></h3>
+          <p>Gute Haare sind mehr als ein Look. Sie sind ein Gefühl.</p>
+          <p>Hinter jedem Haarschnitt, jeder Farbe und jedem Styling stehen Menschen mit Leidenschaft, Persönlichkeit und dem Anspruch, das Beste aus deinem Haar herauszuholen.</p>
+          <p>Ich bin Hai Yen – gemeinsam mit Lisa, Anika, Josi, Lea-Sophie und Minh Anh bilden wir ein Team, das unterschiedlicher nicht sein könnte und gerade deshalb so besonders ist.</p>
+          <p>Von der Masterstylistin bis zur Junior Stylistin bringt jede von uns ihren eigenen Stil, ihre individuellen Stärken und ganz viel Herzblut mit.</p>
+          <p>Was uns verbindet, ist die Liebe zu unserem Handwerk und der Wunsch, dir nicht nur schöne Haare, sondern ein rundum gutes Gefühl zu schenken.</p>
+          <p>Wir nehmen uns Zeit für dich, hören dir zu und kreieren gemeinsam deinen ganz persönlichen Lieblingslook.</p>
+          <Link className="text-link" href="/team">Das Team kennenlernen <ArrowUpRight size={17} /></Link>
+        </div>
+      </div>
       <TeamPreviewCarousel />
     </section>
     <section className="reviews-section"><div className="section-shell"><p className="eyebrow">Worte, die bei uns bleiben</p><h2>Das schönste Kompliment?<br /><em>Wenn du wiederkommst.</em></h2><ReviewCarousel /></div></section>
