@@ -11,6 +11,7 @@ const targets = [
   "main ul", "main ol", "main dl", "main label", "main summary",
   "main .button", "main .text-link", "main figure:not([data-parallax])",
   ".salon-hero-content > *", ".salon-hero-visual figcaption",
+  ".team-hero-copy > *", ".team-hero-visual figcaption",
   ".brand-carousel-heading", ".brand-carousel-window",
   ".salon-story-copy > *", ".team-group-photo", ".home-team-intro > div:last-child", ".team-preview",
   ".review-carousel",

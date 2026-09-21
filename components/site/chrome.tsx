@@ -34,7 +34,7 @@ function MobileBookingLink() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const intro = document.querySelector(".salon-hero, main .page-intro");
+    const intro = document.querySelector(".salon-hero, .team-hero, main .page-intro");
     if (!intro) return;
     const observer = new IntersectionObserver(([entry]) => {
       setVisible(!entry.isIntersecting && entry.boundingClientRect.bottom <= 0);
