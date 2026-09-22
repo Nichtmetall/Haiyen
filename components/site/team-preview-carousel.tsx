@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TEAM, type TeamMember } from "./data";
+import { SpecialistBadge } from "./specialist-badge";
 
 const COUNT = TEAM.length;
 const SLIDES = [...TEAM, ...TEAM, ...TEAM];
@@ -21,6 +22,7 @@ function PersonCard({ member, interactive }: { member: TeamMember; interactive: 
           loading="eager"
           sizes="(max-width: 760px) 42vw, (max-width: 1000px) 28vw, 22vw"
         />
+        {member.badge && <SpecialistBadge badge={member.badge} compact />}
       </div>
       <h3>{member.name}</h3>
       <p>{member.role}</p>

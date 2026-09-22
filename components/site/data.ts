@@ -119,6 +119,12 @@ export const REVIEWS = [
   }
 ];
 
+export interface TeamBadge {
+  kicker: string;
+  title: string;
+  mark: string;
+}
+
 export interface TeamMember {
   name: string;
   role: string;
@@ -129,6 +135,7 @@ export interface TeamMember {
   location: string;
   skills: string[];
   quote: string;
+  badge?: TeamBadge;
 }
 
 export const TEAM: TeamMember[] = [
@@ -153,6 +160,7 @@ export const TEAM: TeamMember[] = [
     location: "Dresden Striesen",
     skills: ["Extensions", "Hochsteckfrisuren", "Braut-Styling"],
     quote: "Extensions dürfen niemals auffallen – nur das Ergebnis soll auffallen.",
+    badge: { kicker: "Diplom", title: "Coloriste Diplômé von L'Oréal", mark: "L’" },
   },
   {
     name: "Anika",
@@ -161,9 +169,10 @@ export const TEAM: TeamMember[] = [
     specialty: "Kreative Farb- & Strähnentechniken",
     category: "master",
     slug: "anika",
-    location: "Dresden Neustadt",
+    location: "Dresden Striesen",
     skills: ["Highlights", "Creative Color", "Blondierung"],
     quote: "Farbe ist Handwerk und Gefühl zugleich – der Übergang macht den Unterschied.",
+    badge: { kicker: "Spezialgebiet", title: "Balayage- & Blondspezialistin", mark: "BL" },
   },
   {
     name: "Lea-Sophie",
@@ -172,9 +181,10 @@ export const TEAM: TeamMember[] = [
     specialty: "",
     category: "master",
     slug: "lea-sophie",
-    location: "Dresden",
+    location: "Dresden Striesen / Neustadt",
     skills: [],
     quote: "",
+    badge: { kicker: "Spezialgebiet", title: "Balayage- & Blowoutspezialistin", mark: "BB" },
   },
   {
     name: "Josi",
@@ -194,9 +204,10 @@ export const TEAM: TeamMember[] = [
     specialty: "",
     category: "junior",
     slug: "minh-anh",
-    location: "Dresden",
+    location: "Dresden Striesen und Neustadt",
     skills: [],
     quote: "",
+    badge: { kicker: "Ausbildung", title: "Second-Year Apprentice Hairstylist", mark: "II" },
   }
 ];
 
