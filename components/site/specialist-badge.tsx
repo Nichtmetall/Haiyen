@@ -1,3 +1,3 @@
-export function SpecialistBadge({ badge, compact = false }: { badge: string; compact?: boolean }) {
-  return <p className={`specialist-badge${compact ? " is-compact" : ""}`}>{badge}</p>;
+export function SpecialistBadge({ badge }: { badge: string }) {
+  return <span className="specialist-badge">{badge}</span>;
 }

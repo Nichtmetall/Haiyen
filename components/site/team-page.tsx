@@ -78,10 +78,9 @@ export const TeamPageContent = () => {
               <article id={member.slug} className="team-minimal-person">
                 <div className="team-minimal-photo">
                   <FadeImage src={member.img} alt={`${member.name}, ${member.role} bei Haiyen Hairdesign in Dresden`} fill sizes="(max-width: 600px) 90vw, (max-width: 1000px) 43vw, 28vw" />
-                  {member.badge && <SpecialistBadge badge={member.badge} />}
                 </div>
                 <h2>{member.name}</h2>
-                <p className="team-minimal-role">{member.role}</p>
+                <p className="team-minimal-role">{member.role}{member.badge && <SpecialistBadge badge={member.badge} />}</p>
                 <p className="team-minimal-location">{member.location}</p>
                 {member.specialty && <p className="team-minimal-specialty">{member.specialty}</p>}
                 <div className="team-minimal-links">

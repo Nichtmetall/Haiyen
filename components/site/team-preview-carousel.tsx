@@ -22,10 +22,9 @@ function PersonCard({ member, interactive }: { member: TeamMember; interactive: 
           loading="eager"
           sizes="(max-width: 760px) 42vw, (max-width: 1000px) 28vw, 22vw"
         />
-        {member.badge && <SpecialistBadge badge={member.badge} compact />}
       </div>
       <h3>{member.name}</h3>
-      <p>{member.role}</p>
+      <p>{member.role}{member.badge && <SpecialistBadge badge={member.badge} />}</p>
     </>
   );
 
