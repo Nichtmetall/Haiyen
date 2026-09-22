@@ -8,6 +8,16 @@ import { ArrowUpRight } from "lucide-react";
 import { GALLERY_ITEMS, TEAM } from "./data";
 import { TEAM_IMAGE } from "./salon-images";
 import { ScrollImage } from "./animations";
+import { SpecialistBadge } from "./specialist-badge";
+
+function memberBookingHref(location: string) {
+  const striesen = location.includes("Striesen");
+  const neustadt = location.includes("Neustadt");
+  if (striesen && neustadt) return "/booking";
+  if (neustadt) return "/booking?location=neustadt";
+  if (striesen) return "/booking?location=striesen";
+  return "/booking";
+}
 
 export const TeamPageContent = () => {
   const [filter, setFilter] = useState("all");
@@ -46,6 +56,7 @@ export const TeamPageContent = () => {
                   alt={TEAM_IMAGE.alt}
                   fill
                   preload
+                  unoptimized
                   sizes="(max-width: 760px) 88vw, (max-width: 1455px) 50vw, 680px"
                 />
               </ScrollImage>
@@ -69,12 +80,12 @@ export const TeamPageContent = () => {
                   <FadeImage src={member.img} alt={`${member.name}, ${member.role} bei Haiyen Hairdesign in Dresden`} fill sizes="(max-width: 600px) 90vw, (max-width: 1000px) 43vw, 28vw" />
                 </div>
                 <h2>{member.name}</h2>
-                <p className="team-minimal-role">{member.role}</p>
+                <p className="team-minimal-role">{member.role}{member.badge && <SpecialistBadge badge={member.badge} />}</p>
                 <p className="team-minimal-location">{member.location}</p>
                 {member.specialty && <p className="team-minimal-specialty">{member.specialty}</p>}
                 <div className="team-minimal-links">
                   {GALLERY_ITEMS.some(item => item.stylist === member.slug) && <Link className="text-link" href={`/galerie?stylist=${member.slug}`}>Arbeiten <ArrowUpRight size={15} /></Link>}
-                  <Link className="text-link" href={member.location.includes("Neustadt") && !member.location.includes("Striesen") ? "/booking?location=neustadt" : member.location.includes("Striesen") && !member.location.includes("&") ? "/booking?location=striesen" : "/booking"}>Termin <ArrowUpRight size={15} /></Link>
+                  <Link className="text-link" href={memberBookingHref(member.location)}>Termin <ArrowUpRight size={15} /></Link>
                 </div>
               </article>
             </FadeIn>

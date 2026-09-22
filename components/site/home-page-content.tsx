@@ -90,7 +90,7 @@ export const HomePageContent = () => (
       </FadeIn>
       <div className="home-team-intro">
         <FadeIn delay={0.1} className="team-group-photo">
-          <FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={1800} height={1800} sizes="(max-width: 760px) 88vw, 44vw" />
+          <FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={TEAM_IMAGE.width} height={TEAM_IMAGE.height} unoptimized sizes="(max-width: 760px) 88vw, 44vw" />
         </FadeIn>
         <FadeIn delay={0.22}>
           <h3>Sechs Persönlichkeiten.<br />Eine Leidenschaft.<br />Ihr <em>Stil.</em></h3>
@@ -137,12 +137,12 @@ export const HomePageContent = () => (
               <dl>{loc.hours.map(row => <div key={row.days}><dt>{row.days}</dt><dd>{row.time}</dd></div>)}</dl>
             </div>
             <Link className="button button-primary" href={`/booking?location=${key}`}>Termin in {loc.name} <ArrowUpRight size={17} /></Link>
-            <details className="map-details">
-              <summary>Anfahrt & Karte <Plus size={16} /></summary>
+            <div className="location-map-block">
+              <p className="location-map-label">Anfahrt & Karte</p>
               <div className="location-map" data-lenis-prevent>
                 <ConsentEmbed src={loc.mapEmbed} title={`Google Maps – Haiyen Hairdesign ${loc.name}`} fallbackHref={loc.mapUrl} fallbackLabel="Route öffnen" />
               </div>
-            </details>
+            </div>
           </FadeIn>
         ))}
       </div>
