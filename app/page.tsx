@@ -1,6 +1,7 @@
 import { SITE_URL, pageMetadata } from "@/components/site/seo";
 import { LOCATIONS } from "@/components/site/locations";
 import { SALON_IMAGES, TEAM_IMAGE } from "@/components/site/salon-images";
+import { REVIEWS } from "@/components/site/data";
 import HomePage from "@/components/site/home-page";
 
 export const metadata = pageMetadata(
@@ -22,6 +23,17 @@ export default function Home() {
         image: Object.values(SALON_IMAGES).map(photo => `${SITE_URL}${photo.src}`),
         email: "info@haiyen-hairdesign.de",
         department: Object.keys(LOCATIONS).map(key => ({ "@id": `${SITE_URL}/#${key}` })),
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "5",
+          reviewCount: REVIEWS.length,
+        },
+        review: REVIEWS.map(review => ({
+          "@type": "Review",
+          reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+          author: { "@type": "Person", name: review.author },
+          reviewBody: review.text,
+        })),
       },
       {
         "@type": "WebSite",
