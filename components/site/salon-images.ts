@@ -28,7 +28,10 @@ export const SALON_IMAGES = {
   },
 } satisfies Record<string, SalonImage>;
 
+// Original IMG_4041.jpeg, published at full 5712×5712 without downscaling.
 export const TEAM_IMAGE = {
-  src: "/images/team/haiyen-hairdesign-team-dresden.webp",
+  src: "/images/team/haiyen-hairdesign-team-dresden.jpeg",
   alt: "Das sechsköpfige Team von Haiyen Hairdesign in Dresden gemeinsam vor der Salonwand",
+  width: 5712,
+  height: 5712,
 };

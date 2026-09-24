@@ -129,6 +129,7 @@ export interface TeamMember {
   location: string;
   skills: string[];
   quote: string;
+  badge?: string;
 }
 
 export const TEAM: TeamMember[] = [
@@ -153,6 +154,7 @@ export const TEAM: TeamMember[] = [
     location: "Dresden Striesen",
     skills: ["Extensions", "Hochsteckfrisuren", "Braut-Styling"],
     quote: "Extensions dürfen niemals auffallen – nur das Ergebnis soll auffallen.",
+    badge: "Coloriste Diplômé von L'Oréal",
   },
   {
     name: "Anika",
@@ -161,9 +163,10 @@ export const TEAM: TeamMember[] = [
     specialty: "Kreative Farb- & Strähnentechniken",
     category: "master",
     slug: "anika",
-    location: "Dresden Neustadt",
+    location: "Dresden Striesen",
     skills: ["Highlights", "Creative Color", "Blondierung"],
     quote: "Farbe ist Handwerk und Gefühl zugleich – der Übergang macht den Unterschied.",
+    badge: "Balayage- & Blondspezialistin",
   },
   {
     name: "Lea-Sophie",
@@ -172,9 +175,10 @@ export const TEAM: TeamMember[] = [
     specialty: "",
     category: "master",
     slug: "lea-sophie",
-    location: "Dresden",
+    location: "Dresden Striesen / Neustadt",
     skills: [],
     quote: "",
+    badge: "Balayage- & Blowoutspezialistin",
   },
   {
     name: "Josi",
@@ -194,9 +198,10 @@ export const TEAM: TeamMember[] = [
     specialty: "",
     category: "junior",
     slug: "minh-anh",
-    location: "Dresden",
+    location: "Dresden Striesen und Neustadt",
     skills: [],
     quote: "",
+    badge: "Second-Year Apprentice Hairstylist",
   }
 ];
 

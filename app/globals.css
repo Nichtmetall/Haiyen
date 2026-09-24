@@ -452,9 +452,9 @@ details[open] > summary > svg { transform: rotate(45deg); }
 .location-details dl div, .booking-sidebar dl div { display: flex; justify-content: space-between; gap: 18px; margin-bottom: 8px; font-size: 11px; }
 .location-details dt { color: var(--ink-muted); }
 .location-block .button { width: 100%; }
-.map-details { border-bottom: 1px solid var(--rule); }
-.map-details summary { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; font-size: 11px; }
-.location-map { height: 345px; margin-bottom: 20px; overflow: hidden; }
+.location-map-block { margin-top: 22px; }
+.location-map-label { margin-bottom: 12px; color: var(--gold); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+.location-map { height: 345px; overflow: hidden; border-radius: var(--image-radius); }
 .faq-section { display: grid; grid-template-columns: .75fr 1.25fr; gap: 10%; padding-block: 100px; }
 .faq-list summary svg { flex-shrink: 0; }
 .faq-list details { border-bottom: 1px solid var(--rule); }
@@ -736,6 +736,7 @@ details[open] > summary > svg { transform: rotate(45deg); }
 .team-minimal-role { font-size: 10px; margin-top: 9px; }
 .team-minimal-location { color: var(--ink-muted); font-size: 9px; margin-top: 5px; }
 .team-minimal-specialty { color: var(--ink-muted); font-size: 11px; margin-block: 22px; min-height: 40px; }
+.specialist-badge::before { content: " · "; }
 .team-minimal-links { display: flex; gap: 22px; }
 .team-minimal-links .text-link { font-size: 10px; gap: 12px; }
 .home-team .section-heading { margin-bottom: 38px; }
