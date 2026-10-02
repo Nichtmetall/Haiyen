@@ -362,11 +362,12 @@ p { line-height: 1.8; }
 .personal-quote p span { color: var(--ink-muted); }
 .cinema { position: relative; height: 300svh; background: #17100d; color: var(--cream); }
 .cinema-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; }
-.cinema-frame, .cinema-photo, .cinema-shade { position: absolute; inset: 0; }
+.cinema-frame, .cinema-photo, .cinema-shade, .cinema-vignette { position: absolute; inset: 0; }
 .cinema-photo img { object-fit: cover; object-position: 50% 43%; }
 .cinema-photo { transform-origin: center; }
 .cinema-photo-second img { object-position: 50% 48%; }
-.cinema-shade { background: linear-gradient(90deg,#211713d9 0%,#2b1f1980 50%,#2b1f1929), linear-gradient(0deg,#261b1688,transparent 40%); }
+.cinema-shade { background: linear-gradient(90deg,#211713a6 0%,#2b1f1959 45%,#2b1f1917), linear-gradient(0deg,#261b1688,transparent 40%); }
+.cinema-vignette { pointer-events: none; background: radial-gradient(ellipse 52% 62% at 50% 46%, transparent 0%, transparent 38%, #120c0a73 68%, #120c0ae6 100%); }
 .cinema-label { position: absolute; top: 23%; left: 10%; }
 .cinema-chapters { position: absolute; left: 10%; right: 8%; top: 38%; }
 .cinema-chapter { position: absolute; inset: 0; }
@@ -595,7 +596,8 @@ details[open] > summary > svg { transform: rotate(45deg); }
   .cinema-chapter h2 { font-size: clamp(45px,10vw,75px); }
   .cinema-chapter p { max-width: 250px; font-size: 12px; }
   .cinema-footer { left: 8%; bottom: 13%; font-size: 7px; }
-  .cinema-photo img { object-position: 54% center; }
+  .cinema-photo img { object-position: 50% center; }
+  .cinema-vignette { background: radial-gradient(ellipse 85% 58% at 50% 46%, transparent 0%, transparent 35%, #120c0a73 70%, #120c0aeb 100%); }
   .section-heading { align-items: start; flex-direction: column; gap: 25px; margin-bottom: 35px; }
   .selected-work, .home-team, .locations-section { padding-block: 70px; }
   .work-grid { gap: 20px; grid-template-columns: 1fr; }

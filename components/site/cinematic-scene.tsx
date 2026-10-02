@@ -66,11 +66,12 @@ export function CinematicScene() {
       <div ref={stickyRef} className="cinema-sticky">
         <motion.div className="cinema-frame" style={reduced ? undefined : { clipPath: frame }}>
           <motion.div className="cinema-photo" style={reduced ? undefined : { scale }}>
-            <FadeImage src="/images/galerie/Josi/IMG_8571.jpg" alt="Warme, goldene Wellen – eine Arbeit von Josi" fill sizes="100vw" />
+            <FadeImage src="/images/cinematic/image_1.jpg" alt="Seidig glänzende Wellen in warmem Rosé-Braun im Salon" fill sizes="100vw" priority />
           </motion.div>
-          {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: secondImage, scale }}><FadeImage src="/images/galerie/Anika/4972abd3-b425-4c73-a79c-528c21571338.jpg" alt="Weiche Farbverläufe und Wellen, gestaltet von Anika" fill sizes="100vw" /></motion.div>}
-          {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: thirdImage, scale }}><FadeImage src="/images/galerie/Lisa/IMG_1153.jpg" alt="Kreative Coloration und Schnitt – eine Arbeit von Lisa" fill sizes="100vw" /></motion.div>}
+          {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: secondImage, scale }}><FadeImage src="/images/cinematic/image_2.jpeg" alt="Lange Kupferwellen mit weichen Blond-Akzenten im Salon" fill sizes="100vw" /></motion.div>}
+          {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: thirdImage, scale }}><FadeImage src="/images/cinematic/image_3.jpg" alt="Glatter, kühler Blond-Bob mit Pony im Profil" fill sizes="100vw" /></motion.div>}
           <div className="cinema-shade" />
+          <div className="cinema-vignette" />
           <div className="cinema-label eyebrow light">Ein Moment. Nur für Sie.</div>
           <div className="cinema-chapters" aria-hidden={!reduced}>
             {chapters.map((chapter, i) => <motion.div key={chapter.title} className="cinema-chapter" style={reduced ? undefined : { opacity: chapter.opacity }}><span className="cinema-number">0{i + 1}</span><h2>{chapter.title}</h2><p>{chapter.sub}</p></motion.div>)}
