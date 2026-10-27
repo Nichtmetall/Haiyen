@@ -30,7 +30,7 @@ export const HeroParallax = () => (
       </div>
       <div className="salon-hero-visual hero-rise" style={{ animationDelay: "0.28s" }}>
         <figure data-parallax>
-          <ScrollImage strength={4} className="salon-hero-photo"><Image src={SALON_IMAGES.hero.src} alt={SALON_IMAGES.hero.alt} fill preload sizes="(max-width: 760px) 88vw, (max-width: 1455px) 40vw, 580px" style={{ objectPosition: SALON_IMAGES.hero.position }} /></ScrollImage>
+          <ScrollImage strength={4} className="salon-hero-photo"><Image src={SALON_IMAGES.hero.src} alt={SALON_IMAGES.hero.alt} fill preload fetchPriority="high" sizes="(max-width: 760px) 88vw, (max-width: 1455px) 40vw, 580px" style={{ objectPosition: SALON_IMAGES.hero.position }} /></ScrollImage>
           <figcaption><span>Ankommen. Wohlfühlen. Sie sein.</span><a href="#salon">Ein Blick in den Salon <ArrowUpRight size={16} aria-hidden="true" /></a></figcaption>
         </figure>
       </div>
