@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "command": "[ ! -f \"C:\\\\Users\\\\IT0294\\\\.cursor\\\\skills\\\\impeccable\\\\scripts\\\\impeccable\" ] || \"C:\\\\Users\\\\IT0294\\\\.cursor\\\\skills\\\\impeccable\\\\scripts\\\\impeccable\" hook",
+        "matcher": "^Write$",
+        "timeout": 5
+      }
+    ]
+  }
+}

@@ -169,7 +169,8 @@ button:focus-visible {
   scroll-margin-top: 9rem;
 }
 
-.legal-content section + section {
+/* Sections stecken jeweils in einem FadeIn-Wrapper und sind daher keine Geschwister */
+.legal-content > * + * > section {
   border-top: 1px solid rgb(32 23 19 / 0.1);
   margin-top: 3.25rem;
   padding-top: 3.25rem;
@@ -201,6 +202,8 @@ button:focus-visible {
 }
 
 .legal-content p + p,
+.legal-content ul + p,
+.legal-content .legal-card + p,
 .legal-content ul {
   margin-top: 1rem;
 }
@@ -446,7 +449,13 @@ details[open] > summary > svg { transform: rotate(45deg); }
 .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
 .location-block { border-top: 1px solid var(--espresso); padding-top: 30px; }
 .location-heading .eyebrow { margin-bottom: 10px; }
-.location-heading h3 { font-size: 44px; letter-spacing: -.04em; }
+.location-heading h3, .location-heading h2 { font-size: 44px; letter-spacing: -.04em; }
+.contact-page { padding-bottom: 100px; }
+.contact-channels { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin-bottom: 80px; }
+.contact-channels a { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 6px 18px; padding-block: 22px; border-block: 1px solid var(--rule); font-size: 20px; }
+.contact-channels .eyebrow { grid-column: 1 / -1; }
+.contact-channels svg { transition: transform .25s; }
+.contact-channels a:hover svg { transform: translate(3px,-3px); }
 .location-details { display: flex; justify-content: space-between; gap: 25px; font-size: 12px; margin-block: 28px; min-height: 112px; }
 .location-phone { display: block; margin-top: 15px; }
 .location-details dl { min-width: 185px; }
@@ -622,6 +631,9 @@ details[open] > summary > svg { transform: rotate(45deg); }
   .review-text { min-height: 250px; }
   .review-text blockquote { font-size: 23px; }
   .locations-grid { grid-template-columns: 1fr; gap: 45px; }
+  .contact-channels { grid-template-columns: 1fr; gap: 0; margin-bottom: 50px; }
+  .contact-channels a { font-size: 17px; }
+  .contact-channels a + a { border-top: 0; }
   .location-details { flex-direction: row; min-height: 100px; font-size: 11px; gap: 14px; }
   .location-details dl { min-width: 160px; }
   .location-details dl div { font-size: 10px; gap: 12px; }

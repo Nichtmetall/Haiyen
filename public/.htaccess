@@ -1,0 +1,9 @@
+# Weiterleitungen der alten Contao-Adressen
+RedirectMatch 301 ^/preise\.html$ /booking/
+RedirectMatch 301 ^/team\.html$ /team/
+RedirectMatch 301 ^/kontakt\.html$ /kontakt/
+RedirectMatch 301 ^/bildergalerie\.html$ /galerie/
+RedirectMatch 301 ^/impressum\.html$ /impressum/
+RedirectMatch 301 ^/datenschutz\.html$ /datenschutz/
+
+ErrorDocument 404 /404.html

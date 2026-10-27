@@ -14,20 +14,6 @@ export default function DatenschutzPage() {
       title="Datenschutz"
       intro="Hier erfahren Sie transparent, welche Daten beim Besuch dieser Website verarbeitet werden und welche Wahlmöglichkeiten Sie haben."
       updatedAt="August 2026"
-      highlights={[
-        {
-          label: "Keine Tracker",
-          value: "Wir setzen kein Analyse- oder Werbetracking ein.",
-        },
-        {
-          label: "Externe Inhalte",
-          value: "Karten und Terminbuchung laden erst nach Ihrer Einwilligung.",
-        },
-        {
-          label: "Ihre Kontrolle",
-          value: "Die Auswahl lässt sich jederzeit über den Footer ändern.",
-        },
-      ]}
       sections={[
         {
           id: "verantwortliche",

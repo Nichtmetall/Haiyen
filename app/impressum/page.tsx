@@ -14,45 +14,6 @@ export default function ImpressumPage() {
       title="Impressum"
       intro="Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) – transparent und vollständig auf einen Blick."
       updatedAt="August 2026"
-      highlights={[
-        {
-          label: "Anbieterin",
-          value: (
-            <>
-              Thi Hai Yen Cu
-              <br />
-              Haiyen Hairdesign
-            </>
-          ),
-        },
-        {
-          label: "Sitz",
-          value: (
-            <>
-              Borsbergstraße 21
-              <br />
-              01309 Dresden
-            </>
-          ),
-        },
-        {
-          label: "Kontakt",
-          value: (
-            <>
-              <a className="font-semibold text-[#8b6b3c] underline underline-offset-4" href="tel:+4935132322434">
-                0351 323 22 434
-              </a>
-              <br />
-              <a
-                className="font-semibold text-[#8b6b3c] underline underline-offset-4"
-                href="mailto:info@haiyen-hairdesign.de"
-              >
-                info@haiyen-hairdesign.de
-              </a>
-            </>
-          ),
-        },
-      ]}
       sections={[
         {
           id: "anbieterin",

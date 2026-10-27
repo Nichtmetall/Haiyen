@@ -8,24 +8,17 @@ export type LegalSection = {
   content: ReactNode;
 };
 
-export type LegalHighlight = {
-  label: string;
-  value: ReactNode;
-};
-
 export function LegalPage({
   eyebrow,
   title,
   intro,
   updatedAt,
-  highlights,
   sections,
 }: {
   eyebrow: string;
   title: string;
   intro?: string;
   updatedAt?: string;
-  highlights?: LegalHighlight[];
   sections: LegalSection[];
 }) {
   return (
@@ -62,19 +55,6 @@ export function LegalPage({
           )}
         </div>
       </header>
-
-      {highlights && highlights.length > 0 && (
-        <div className="border-b border-[#201713]/10 bg-white/60 px-6 py-10 md:py-14">
-          <dl className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {highlights.map((item, i) => (
-              <FadeIn key={item.label} delay={i * 0.1}>
-                <dt className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#82663b]">{item.label}</dt>
-                <dd className="mt-2 text-sm font-medium leading-relaxed text-[#201713]/80">{item.value}</dd>
-              </FadeIn>
-            ))}
-          </dl>
-        </div>
-      )}
 
       <div className="mx-auto grid max-w-5xl gap-14 px-6 pb-24 pt-14 md:pb-32 md:pt-20 lg:grid-cols-[15rem_1fr] lg:gap-20">
         <nav aria-label="Inhaltsverzeichnis" className="hidden lg:block">

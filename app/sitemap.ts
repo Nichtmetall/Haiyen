@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absolute("/team/"), images: [TEAM_IMAGE.src, ...TEAM.map(member => member.img)].map(absolute) },
     { url: absolute("/galerie/"), images: GALLERY_ITEMS.map(item => absolute(item.src)) },
     { url: absolute("/booking/") },
+    { url: absolute("/kontakt/") },
     { url: absolute("/impressum/") },
     { url: absolute("/datenschutz/") },
   ];
