@@ -20,6 +20,7 @@ function PersonCard({ member, interactive }: { member: TeamMember; interactive: 
           alt={interactive ? member.name : ""}
           fill
           loading="eager"
+          fetchPriority="low"
           sizes="(max-width: 760px) 42vw, (max-width: 1000px) 28vw, 22vw"
         />
       </div>

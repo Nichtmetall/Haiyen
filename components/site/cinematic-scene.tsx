@@ -66,7 +66,7 @@ export function CinematicScene() {
       <div ref={stickyRef} className="cinema-sticky">
         <motion.div className="cinema-frame" style={reduced ? undefined : { clipPath: frame }}>
           <motion.div className="cinema-photo" style={reduced ? undefined : { scale }}>
-            <FadeImage src="/images/cinematic/image_1.jpg" alt="Seidig glänzende Wellen in warmem Rosé-Braun im Salon" fill sizes="100vw" priority />
+            <FadeImage src="/images/cinematic/image_1.jpg" alt="Seidig glänzende Wellen in warmem Rosé-Braun im Salon" fill sizes="100vw" />
           </motion.div>
           {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: secondImage, scale }}><FadeImage src="/images/cinematic/image_2.jpeg" alt="Lange Kupferwellen mit weichen Blond-Akzenten im Salon" fill sizes="100vw" /></motion.div>}
           {!reduced && <motion.div className="cinema-photo cinema-photo-second" style={{ opacity: thirdImage, scale }}><FadeImage src="/images/cinematic/image_3.jpg" alt="Glatter, kühler Blond-Bob mit Pony im Profil" fill sizes="100vw" /></motion.div>}

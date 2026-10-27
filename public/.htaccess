@@ -7,3 +7,16 @@ RedirectMatch 301 ^/impressum\.html$ /impressum/
 RedirectMatch 301 ^/datenschutz\.html$ /datenschutz/
 
 ErrorDocument 404 /404.html
+
+# Browser-Caching: gehashte Next-Assets dauerhaft, Bildvarianten 30 Tage, HTML immer neu validieren
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  <ElseIf "%{REQUEST_URI} =~ m#^/_img/|\.(webp|jpe?g|png|svg|ico|woff2)$#i">
+    Header set Cache-Control "public, max-age=2592000"
+  </ElseIf>
+  <ElseIf "%{REQUEST_URI} =~ m#(/|\.html)$#">
+    Header set Cache-Control "no-cache"
+  </ElseIf>
+</IfModule>
