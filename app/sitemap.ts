@@ -13,10 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absolute("/"),
       images: [...Object.values(SALON_IMAGES).map(photo => photo.src), TEAM_IMAGE.src].map(absolute),
     },
-    { url: absolute("/team"), images: [TEAM_IMAGE.src, ...TEAM.map(member => member.img)].map(absolute) },
-    { url: absolute("/galerie"), images: GALLERY_ITEMS.map(item => absolute(item.src)) },
-    { url: absolute("/booking") },
-    { url: absolute("/impressum") },
-    { url: absolute("/datenschutz") },
+    { url: absolute("/team/"), images: [TEAM_IMAGE.src, ...TEAM.map(member => member.img)].map(absolute) },
+    { url: absolute("/galerie/"), images: GALLERY_ITEMS.map(item => absolute(item.src)) },
+    { url: absolute("/booking/") },
+    { url: absolute("/impressum/") },
+    { url: absolute("/datenschutz/") },
   ];
 }

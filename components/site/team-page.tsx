@@ -56,7 +56,6 @@ export const TeamPageContent = () => {
                   alt={TEAM_IMAGE.alt}
                   fill
                   preload
-                  unoptimized
                   sizes="(max-width: 760px) 88vw, (max-width: 1455px) 50vw, 680px"
                 />
               </ScrollImage>

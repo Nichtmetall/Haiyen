@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/optimize-images.mjs",
     "dev": "next dev",
+    "prebuild": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/optimize-images.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

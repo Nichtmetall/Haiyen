@@ -90,7 +90,7 @@ export const HomePageContent = () => (
       </FadeIn>
       <div className="home-team-intro">
         <FadeIn delay={0.1} className="team-group-photo">
-          <FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={TEAM_IMAGE.width} height={TEAM_IMAGE.height} unoptimized sizes="(max-width: 760px) 88vw, 44vw" />
+          <FadeImage src={TEAM_IMAGE.src} alt={TEAM_IMAGE.alt} width={TEAM_IMAGE.width} height={TEAM_IMAGE.height} sizes="(max-width: 760px) 88vw, 44vw" />
         </FadeIn>
         <FadeIn delay={0.22}>
           <h3>Sechs Persönlichkeiten.<br />Eine Leidenschaft.<br />Ihr <em>Stil.</em></h3>
