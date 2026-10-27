@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Haiyen Hairdesign – Friseur in Dresden",
@@ -12,7 +14,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#201713",
     lang: "de-DE",
     icons: [
-      { src: "/icon", sizes: "32x32", type: "image/png" },
+      { src: "/favicon.ico", sizes: "16x16 32x32", type: "image/x-icon" },
       { src: "/apple-icon", sizes: "180x180", type: "image/png" },
     ],
   };

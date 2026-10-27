@@ -3,6 +3,8 @@ import { SITE_URL } from "@/components/site/seo";
 import { SALON_IMAGES, TEAM_IMAGE } from "@/components/site/salon-images";
 import { GALLERY_ITEMS, TEAM } from "@/components/site/data";
 
+export const dynamic = "force-static";
+
 const absolute = (path: string) => new URL(path, SITE_URL).href;
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -50,7 +50,7 @@ function MobileBookingLink() {
 function ContactSocialLinks() {
   return <nav className="contact-socials" aria-label="Kontakt über Social Media">
     <a href="https://wa.me/491745156575" target="_blank" rel="noreferrer"><WhatsAppIcon /><span>WhatsApp</span></a>
-    <a href="https://www.instagram.com/haiyenhairdesign_striesen/" target="_blank" rel="noreferrer"><InstagramIcon /><span>Instagram</span></a>
+    <a href="https://www.instagram.com/haiyenhairdesign/" target="_blank" rel="noreferrer"><InstagramIcon /><span>Instagram</span></a>
     <a href={`tel:${LOCATIONS.striesen.phoneHref}`} aria-label="Salon Striesen anrufen"><Phone aria-hidden="true" /><span>Telefon</span></a>
   </nav>;
 }
@@ -84,7 +84,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         <WhatsAppIcon />
         <span>WhatsApp</span>
       </a>
-      <a href="https://www.instagram.com/haiyenhairdesign_striesen/" target="_blank" rel="noreferrer" aria-label="Haiyen Hairdesign auf Instagram öffnen">
+      <a href="https://www.instagram.com/haiyenhairdesign/" target="_blank" rel="noreferrer" aria-label="Haiyen Hairdesign auf Instagram öffnen">
         <InstagramIcon />
         <span>Instagram</span>
       </a>
